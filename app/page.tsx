@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { ArrowRight, Users, Globe, Lightbulb, Award, Handshake, TrendingUp, Building2, Palette, Zap, Facebook, Linkedin, Twitter, Instagram } from "lucide-react"
 import { ExhibitorRegistrationModal } from "@/components/exhibitor-registration-modal"
+import { Header } from "@/components/header"
 import { useState } from "react"
 
 export default function ElysianSummitPage() {
@@ -16,8 +17,10 @@ export default function ElysianSummitPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <Header />
+      
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
         {/* Background Video/Image Montage */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
@@ -71,7 +74,7 @@ export default function ElysianSummitPage() {
       </section>
 
       {/* About the Summit */}
-      <section className="py-20 px-4 bg-card/50">
+      <section id="about" className="py-20 px-4 bg-card/50 scroll-mt-20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl font-serif font-bold mb-8 text-gold-gradient">
@@ -91,7 +94,7 @@ export default function ElysianSummitPage() {
       </section>
 
       {/* Vision & Mission */}
-      <section className="py-20 px-4">
+      <section id="vision" className="py-20 px-4 scroll-mt-20">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-6xl font-serif font-bold mb-16 text-center text-gold-gradient">
             Our Guiding Purpose
@@ -137,7 +140,7 @@ export default function ElysianSummitPage() {
       </section>
 
       {/* Key Objectives */}
-      <section className="py-20 px-4">
+      <section id="objectives" className="py-20 px-4 scroll-mt-20">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-6xl font-serif font-bold mb-16 text-center text-gold-gradient">
             Summit & Exhibition Objectives
@@ -277,7 +280,7 @@ export default function ElysianSummitPage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-16 px-4 bg-card/90 backdrop-blur-sm">
+      <footer id="contact" className="py-16 px-4 bg-card/90 backdrop-blur-sm scroll-mt-20">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <div>
@@ -286,8 +289,16 @@ export default function ElysianSummitPage() {
             </div>
             <div>
               <h3 className="text-2xl font-serif font-bold text-gold-gradient mb-4">Contact & Inquiries</h3>
-              <p className="text-foreground">info@elysiansummit.ng</p>
-              <p className="text-foreground">+234 XXX XXX XXXX</p>
+              <p className="text-foreground">
+                <a href="mailto:theelysiansummitandexhibition@gmail.com" className="hover:text-primary transition-colors">
+                  theelysiansummitandexhibition@gmail.com
+                </a>
+              </p>
+              <p className="text-foreground">
+                <a href="tel:+2348114294274" className="hover:text-primary transition-colors">
+                  +234 8114 294 274
+                </a>
+              </p>
             </div>
             <div>
               <h3 className="text-2xl font-serif font-bold text-gold-gradient mb-4">Follow Us</h3>
