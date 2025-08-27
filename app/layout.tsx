@@ -17,8 +17,8 @@ const cormorant = Cormorant_Garamond({
 })
 
 export const metadata: Metadata = {
-  title: "The Elysian Summit & Exhibition - Coming Soon",
-  description: "Experience luxury and innovation at The Elysian Summit & Exhibition. An exclusive gathering of visionaries, creators, and industry leaders in an elegant venue. Join the waitlist for this prestigious event.",
+  title: "The Elysian Summit & Exhibition | Capital City Showcase 2026",
+  description: "Join global innovators, leaders, and creators at The Elysian Summit & Exhibition in Abuja. Experience cutting-edge innovations, cross-industry collaboration, and a future shaped by excellence and ingenuity.",
   generator: 'v0.app'
 }
 

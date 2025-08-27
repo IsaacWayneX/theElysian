@@ -1,0 +1,234 @@
+"use client"
+
+import { useState } from "react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Textarea } from "@/components/ui/textarea"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Card } from "@/components/ui/card"
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { X, Building2, User, Mail, Phone, Globe, FileText, ArrowRight } from "lucide-react"
+
+interface ExhibitorRegistrationModalProps {
+  isOpen: boolean
+  onClose: () => void
+}
+
+export function ExhibitorRegistrationModal({ isOpen, onClose }: ExhibitorRegistrationModalProps) {
+  const [formData, setFormData] = useState({
+    companyName: "",
+    contactPerson: "",
+    email: "",
+    phone: "",
+    website: "",
+    industry: "",
+    boothSize: "",
+    description: "",
+    specialRequirements: ""
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 2000))
+    
+    setIsSubmitting(false)
+    // Here you would typically handle the form submission
+    console.log("Form submitted:", formData)
+  }
+
+  const handleChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }))
+  }
+
+  return (
+    <Dialog open={isOpen} onOpenChange={onClose}>
+      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-card/95 backdrop-blur-sm border-primary/20">
+        <DialogHeader>
+          <DialogTitle className="text-2xl font-serif font-bold text-gold-gradient text-center">
+            Become an Exhibitor
+          </DialogTitle>
+          <p className="text-foreground text-center mt-2">
+            Join The Elysian Summit & Exhibition 2026 as an exhibitor
+          </p>
+        </DialogHeader>
+
+        <form onSubmit={handleSubmit} className="space-y-6 mt-6">
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <Label htmlFor="companyName" className="text-foreground flex items-center">
+                <Building2 className="w-4 h-4 mr-2 text-primary" />
+                Company Name *
+              </Label>
+              <Input
+                id="companyName"
+                value={formData.companyName}
+                onChange={(e) => handleChange("companyName", e.target.value)}
+                required
+                className="bg-background/50 border-border/50 focus:border-primary"
+                placeholder="Enter your company name"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="contactPerson" className="text-foreground flex items-center">
+                <User className="w-4 h-4 mr-2 text-primary" />
+                Contact Person *
+              </Label>
+              <Input
+                id="contactPerson"
+                value={formData.contactPerson}
+                onChange={(e) => handleChange("contactPerson", e.target.value)}
+                required
+                className="bg-background/50 border-border/50 focus:border-primary"
+                placeholder="Full name"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="email" className="text-foreground flex items-center">
+                <Mail className="w-4 h-4 mr-2 text-primary" />
+                Email Address *
+              </Label>
+              <Input
+                id="email"
+                type="email"
+                value={formData.email}
+                onChange={(e) => handleChange("email", e.target.value)}
+                required
+                className="bg-background/50 border-border/50 focus:border-primary"
+                placeholder="your@email.com"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="phone" className="text-foreground flex items-center">
+                <Phone className="w-4 h-4 mr-2 text-primary" />
+                Phone Number *
+              </Label>
+              <Input
+                id="phone"
+                type="tel"
+                value={formData.phone}
+                onChange={(e) => handleChange("phone", e.target.value)}
+                required
+                className="bg-background/50 border-border/50 focus:border-primary"
+                placeholder="+234 XXX XXX XXXX"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="website" className="text-foreground flex items-center">
+                <Globe className="w-4 h-4 mr-2 text-primary" />
+                Website
+              </Label>
+              <Input
+                id="website"
+                type="url"
+                value={formData.website}
+                onChange={(e) => handleChange("website", e.target.value)}
+                className="bg-background/50 border-border/50 focus:border-primary"
+                placeholder="https://yourcompany.com"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="industry" className="text-foreground">
+                Industry *
+              </Label>
+              <Select value={formData.industry} onValueChange={(value) => handleChange("industry", value)} required>
+                <SelectTrigger className="bg-background/50 border-border/50 focus:border-primary">
+                  <SelectValue placeholder="Select your industry" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="oil-gas">Oil & Gas</SelectItem>
+                  <SelectItem value="fintech">Fintech & Banking</SelectItem>
+                  <SelectItem value="fashion">Fashion & Design</SelectItem>
+                  <SelectItem value="construction">Real Estate & Construction</SelectItem>
+                  <SelectItem value="tech">Smart Technologies</SelectItem>
+                  <SelectItem value="logistics">Logistics & Transport</SelectItem>
+                  <SelectItem value="creative">Creative Industries</SelectItem>
+                  <SelectItem value="other">Other</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="boothSize" className="text-foreground">
+                Preferred Booth Size *
+              </Label>
+              <Select value={formData.boothSize} onValueChange={(value) => handleChange("boothSize", value)} required>
+                <SelectTrigger className="bg-background/50 border-border/50 focus:border-primary">
+                  <SelectValue placeholder="Select booth size" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="3x3">3m x 3m (Standard)</SelectItem>
+                  <SelectItem value="4x4">4m x 4m (Large)</SelectItem>
+                  <SelectItem value="6x4">6m x 4m (Premium)</SelectItem>
+                  <SelectItem value="custom">Custom Size</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="description" className="text-foreground flex items-center">
+              <FileText className="w-4 h-4 mr-2 text-primary" />
+              Company Description *
+            </Label>
+            <Textarea
+              id="description"
+              value={formData.description}
+              onChange={(e) => handleChange("description", e.target.value)}
+              required
+              className="bg-background/50 border-border/50 focus:border-primary min-h-[100px]"
+              placeholder="Tell us about your company, products, and what you'll showcase..."
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="specialRequirements" className="text-foreground">
+              Special Requirements
+            </Label>
+            <Textarea
+              id="specialRequirements"
+              value={formData.specialRequirements}
+              onChange={(e) => handleChange("specialRequirements", e.target.value)}
+              className="bg-background/50 border-border/50 focus:border-primary min-h-[80px]"
+              placeholder="Any special setup requirements, equipment needs, or additional services..."
+            />
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <Button
+              type="submit"
+              className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(212,175,55,0.6)] hover:shadow-primary"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? (
+                "Submitting..."
+              ) : (
+                <>
+                  Submit Application
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </>
+              )}
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              onClick={onClose}
+              className="flex-1 border-primary text-primary hover:bg-primary/10 hover:text-primary"
+            >
+              Cancel
+            </Button>
+          </div>
+        </form>
+      </DialogContent>
+    </Dialog>
+  )
+}
