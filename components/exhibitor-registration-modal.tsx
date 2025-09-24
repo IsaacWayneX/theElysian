@@ -7,8 +7,8 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Card } from "@/components/ui/card"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { X, Building2, User, Mail, Phone, Globe, FileText, ArrowRight } from "lucide-react"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
+import { X, Building2, User, Mail, Phone, Globe, FileText, ArrowRight, CheckCircle, AlertCircle } from "lucide-react"
 
 interface ExhibitorRegistrationModalProps {
   isOpen: boolean
@@ -28,17 +28,57 @@ export function ExhibitorRegistrationModal({ isOpen, onClose }: ExhibitorRegistr
     specialRequirements: ""
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setSubmitStatus('idle')
+    setErrorMessage('')
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    
-    setIsSubmitting(false)
-    // Here you would typically handle the form submission
-    console.log("Form submitted:", formData)
+    try {
+      // Use our API route instead of calling Google Apps Script directly
+      const response = await fetch('/api/submit-exhibitor', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+      
+      const result = await response.json()
+      
+      if (result.success || response.ok) {
+        setSubmitStatus('success')
+        // Reset form
+        setFormData({
+          companyName: "",
+          contactPerson: "",
+          email: "",
+          phone: "",
+          website: "",
+          industry: "",
+          boothSize: "",
+          description: "",
+          specialRequirements: ""
+        })
+        // Close modal after 2 seconds
+        setTimeout(() => {
+          onClose()
+          setSubmitStatus('idle')
+        }, 2000)
+      } else {
+        setSubmitStatus('error')
+        setErrorMessage(result.error || 'Failed to submit registration')
+      }
+    } catch (error) {
+      setSubmitStatus('error')
+      setErrorMessage('Network error. Please try again.')
+      console.error('Form submission error:', error)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (field: string, value: string) => {
@@ -52,10 +92,25 @@ export function ExhibitorRegistrationModal({ isOpen, onClose }: ExhibitorRegistr
           <DialogTitle className="text-2xl font-serif font-bold text-gold-gradient text-center">
             Become an Exhibitor
           </DialogTitle>
-          <p className="text-foreground text-center mt-2">
+          <DialogDescription className="text-foreground text-center mt-2">
             Join The Elysian Summit & Exhibition 2026 as an exhibitor
-          </p>
+          </DialogDescription>
         </DialogHeader>
+
+        {/* Success/Error Messages */}
+        {submitStatus === 'success' && (
+          <div className="flex items-center space-x-2 p-4 bg-green-500/10 border border-green-500/20 rounded-lg text-green-600">
+            <CheckCircle className="w-5 h-5" />
+            <p>Registration submitted successfully! Thank you for your interest.</p>
+          </div>
+        )}
+        
+        {submitStatus === 'error' && (
+          <div className="flex items-center space-x-2 p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-600">
+            <AlertCircle className="w-5 h-5" />
+            <p>{errorMessage}</p>
+          </div>
+        )}
 
         <form onSubmit={handleSubmit} className="space-y-6 mt-6">
           <div className="grid md:grid-cols-2 gap-4">
@@ -207,10 +262,15 @@ export function ExhibitorRegistrationModal({ isOpen, onClose }: ExhibitorRegistr
             <Button
               type="submit"
               className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(212,175,55,0.6)] hover:shadow-primary"
-              disabled={isSubmitting}
+              disabled={isSubmitting || submitStatus === 'success'}
             >
               {isSubmitting ? (
                 "Submitting..."
+              ) : submitStatus === 'success' ? (
+                <>
+                  <CheckCircle className="mr-2 h-4 w-4" />
+                  Submitted!
+                </>
               ) : (
                 <>
                   Submit Application
