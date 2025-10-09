@@ -89,10 +89,10 @@ export function ExhibitorRegistrationModal({ isOpen, onClose }: ExhibitorRegistr
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-card/95 backdrop-blur-sm border-primary/20">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-serif font-bold text-gold-gradient text-center">
+          <DialogTitle className="text-2xl font-bold text-gold-gradient text-center" style={{ fontFamily: 'var(--font-nohemi)' }}>
             Become an Exhibitor
           </DialogTitle>
-          <DialogDescription className="text-foreground text-center mt-2">
+          <DialogDescription className="text-foreground text-center mt-2" style={{ fontFamily: 'var(--font-nohemi)' }}>
             Join The Elysian Summit & Exhibition 2026 as an exhibitor
           </DialogDescription>
         </DialogHeader>
@@ -101,21 +101,21 @@ export function ExhibitorRegistrationModal({ isOpen, onClose }: ExhibitorRegistr
         {submitStatus === 'success' && (
           <div className="flex items-center space-x-2 p-4 bg-green-500/10 border border-green-500/20 rounded-lg text-green-600">
             <CheckCircle className="w-5 h-5" />
-            <p>Registration submitted successfully! Thank you for your interest.</p>
+            <p style={{ fontFamily: 'var(--font-nohemi)' }}>Registration submitted successfully! Thank you for your interest.</p>
           </div>
         )}
         
         {submitStatus === 'error' && (
           <div className="flex items-center space-x-2 p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-600">
             <AlertCircle className="w-5 h-5" />
-            <p>{errorMessage}</p>
+            <p style={{ fontFamily: 'var(--font-nohemi)' }}>{errorMessage}</p>
           </div>
         )}
 
         <form onSubmit={handleSubmit} className="space-y-6 mt-6">
           <div className="grid md:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label htmlFor="companyName" className="text-foreground flex items-center">
+              <Label htmlFor="companyName" className="text-foreground flex items-center" style={{ fontFamily: 'var(--font-nohemi)' }}>
                 <Building2 className="w-4 h-4 mr-2 text-primary" />
                 Company Name *
               </Label>
@@ -130,7 +130,7 @@ export function ExhibitorRegistrationModal({ isOpen, onClose }: ExhibitorRegistr
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="contactPerson" className="text-foreground flex items-center">
+              <Label htmlFor="contactPerson" className="text-foreground flex items-center" style={{ fontFamily: 'var(--font-nohemi)' }}>
                 <User className="w-4 h-4 mr-2 text-primary" />
                 Contact Person *
               </Label>
@@ -145,7 +145,7 @@ export function ExhibitorRegistrationModal({ isOpen, onClose }: ExhibitorRegistr
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="email" className="text-foreground flex items-center">
+              <Label htmlFor="email" className="text-foreground flex items-center" style={{ fontFamily: 'var(--font-nohemi)' }}>
                 <Mail className="w-4 h-4 mr-2 text-primary" />
                 Email Address *
               </Label>
@@ -161,7 +161,7 @@ export function ExhibitorRegistrationModal({ isOpen, onClose }: ExhibitorRegistr
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="phone" className="text-foreground flex items-center">
+              <Label htmlFor="phone" className="text-foreground flex items-center" style={{ fontFamily: 'var(--font-nohemi)' }}>
                 <Phone className="w-4 h-4 mr-2 text-primary" />
                 Phone Number *
               </Label>
@@ -177,7 +177,7 @@ export function ExhibitorRegistrationModal({ isOpen, onClose }: ExhibitorRegistr
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="website" className="text-foreground flex items-center">
+              <Label htmlFor="website" className="text-foreground flex items-center" style={{ fontFamily: 'var(--font-nohemi)' }}>
                 <Globe className="w-4 h-4 mr-2 text-primary" />
                 Website
               </Label>
@@ -192,7 +192,7 @@ export function ExhibitorRegistrationModal({ isOpen, onClose }: ExhibitorRegistr
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="industry" className="text-foreground">
+              <Label htmlFor="industry" className="text-foreground" style={{ fontFamily: 'var(--font-nohemi)' }}>
                 Industry *
               </Label>
               <Select value={formData.industry} onValueChange={(value) => handleChange("industry", value)} required>
@@ -213,7 +213,7 @@ export function ExhibitorRegistrationModal({ isOpen, onClose }: ExhibitorRegistr
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="boothSize" className="text-foreground">
+              <Label htmlFor="boothSize" className="text-foreground" style={{ fontFamily: 'var(--font-nohemi)' }}>
                 Preferred Booth Size *
               </Label>
               <Select value={formData.boothSize} onValueChange={(value) => handleChange("boothSize", value)} required>
@@ -231,7 +231,7 @@ export function ExhibitorRegistrationModal({ isOpen, onClose }: ExhibitorRegistr
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="description" className="text-foreground flex items-center">
+            <Label htmlFor="description" className="text-foreground flex items-center" style={{ fontFamily: 'var(--font-nohemi)' }}>
               <FileText className="w-4 h-4 mr-2 text-primary" />
               Company Description *
             </Label>
@@ -246,7 +246,7 @@ export function ExhibitorRegistrationModal({ isOpen, onClose }: ExhibitorRegistr
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="specialRequirements" className="text-foreground">
+            <Label htmlFor="specialRequirements" className="text-foreground" style={{ fontFamily: 'var(--font-nohemi)' }}>
               Special Requirements
             </Label>
             <Textarea
@@ -261,7 +261,7 @@ export function ExhibitorRegistrationModal({ isOpen, onClose }: ExhibitorRegistr
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
             <Button
               type="submit"
-              className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(212,175,55,0.6)] hover:shadow-primary"
+              className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(212,175,55,0.6)] hover:shadow-primary rounded-xl"
               disabled={isSubmitting || submitStatus === 'success'}
             >
               {isSubmitting ? (
@@ -282,7 +282,7 @@ export function ExhibitorRegistrationModal({ isOpen, onClose }: ExhibitorRegistr
               type="button"
               variant="outline"
               onClick={onClose}
-              className="flex-1 border-primary text-primary hover:bg-primary/10 hover:text-primary"
+              className="flex-1 border-primary text-primary hover:bg-primary/10 hover:text-primary rounded-xl"
             >
               Cancel
             </Button>

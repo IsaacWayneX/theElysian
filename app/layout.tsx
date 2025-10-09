@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Playfair_Display, Cormorant_Garamond } from "next/font/google"
 import "./globals.css"
+import "./fonts.css"
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
