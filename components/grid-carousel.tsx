@@ -38,8 +38,9 @@ export function GridCarousel({
   const [isMobile, setIsMobile] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
 
-  // Responsive items per view
+  // Responsive items per view - SSR safe
   const getResponsiveItemsPerView = () => {
+    if (typeof window === 'undefined') return itemsPerView // Default for SSR
     if (isMobile) return 1
     if (window.innerWidth < 768) return 1
     if (window.innerWidth < 1024) return 2
@@ -49,8 +50,10 @@ export function GridCarousel({
   const responsiveItemsPerView = getResponsiveItemsPerView()
   const maxIndex = Math.max(0, items.length - responsiveItemsPerView)
 
-  // Handle window resize
+  // Handle window resize - SSR safe
   useEffect(() => {
+    if (typeof window === 'undefined') return
+    
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768)
     }
