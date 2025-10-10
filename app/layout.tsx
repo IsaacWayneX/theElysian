@@ -20,7 +20,12 @@ const cormorant = Cormorant_Garamond({
 export const metadata: Metadata = {
   title: "The Elysian Summit & Exhibition | Capital City Showcase 2026",
   description: "Join global innovators, leaders, and creators at The Elysian Summit & Exhibition in Abuja. Experience cutting-edge innovations, cross-industry collaboration, and a future shaped by excellence and ingenuity.",
-  generator: 'v0.app'
+  generator: 'v0.app',
+  icons: {
+    icon: '/ELYSIAN LOGO no background.png',
+    shortcut: '/ELYSIAN LOGO no background.png',
+    apple: '/ELYSIAN LOGO no background.png',
+  },
 }
 
 export default function RootLayout({
