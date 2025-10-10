@@ -10,7 +10,7 @@ interface AnimatedSectionProps {
   subtitle?: string
   children: React.ReactNode
   className?: string
-  backgroundType?: 'gradient' | 'video' | 'image' | 'none'
+  backgroundType?: 'gradient' | 'video' | 'image' | 'white' | 'none'
   backgroundUrl?: string
   overlay?: boolean
   id?: string
@@ -74,6 +74,14 @@ export function AnimatedSection({
             {overlay && <div className="absolute inset-0 bg-black/40" />}
           </div>
         )
+      case 'white':
+        return (
+          <div className="absolute inset-0 bg-white">
+            {/* Subtle gold accent lighting */}
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl" />
+            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl" />
+          </div>
+        )
       case 'gradient':
       default:
         return (
@@ -105,12 +113,18 @@ export function AnimatedSection({
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}>
             {title && (
-              <h2 className="text-4xl md:text-6xl font-black mb-8 text-gold-gradient" style={{ fontFamily: 'var(--font-nohemi)' }}>
+              <h2 className={cn(
+                "text-4xl md:text-6xl font-black mb-8",
+                backgroundType === 'white' ? "text-gray-900" : "text-gold-gradient"
+              )} style={{ fontFamily: 'var(--font-nohemi)' }}>
                 {title}
               </h2>
             )}
             {subtitle && (
-              <p className="text-lg md:text-xl text-foreground leading-relaxed max-w-4xl mx-auto" style={{ fontFamily: 'var(--font-nohemi)' }}>
+              <p className={cn(
+                "text-lg md:text-xl leading-relaxed max-w-4xl mx-auto",
+                backgroundType === 'white' ? "text-gray-700" : "text-foreground"
+              )} style={{ fontFamily: 'var(--font-nohemi)' }}>
                 {subtitle}
               </p>
             )}

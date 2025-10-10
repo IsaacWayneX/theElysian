@@ -259,33 +259,32 @@ export function ExhibitorRegistrationModal({ isOpen, onClose }: ExhibitorRegistr
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
-            <Button
+            <button
               type="submit"
-              className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(212,175,55,0.6)] hover:shadow-primary rounded-xl"
+              className="flex-1 bg-yellow-600 hover:bg-yellow-700 text-white py-3 flex items-center justify-center gap-2"
               disabled={isSubmitting || submitStatus === 'success'}
             >
               {isSubmitting ? (
                 "Submitting..."
               ) : submitStatus === 'success' ? (
                 <>
-                  <CheckCircle className="mr-2 h-4 w-4" />
+                  <CheckCircle className="h-4 w-4" />
                   Submitted!
                 </>
               ) : (
                 <>
                   Submit Application
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  <ArrowRight className="h-4 w-4" />
                 </>
               )}
-            </Button>
-            <Button
+            </button>
+            <button
               type="button"
-              variant="outline"
               onClick={onClose}
-              className="flex-1 border-primary text-primary hover:bg-primary/10 hover:text-primary rounded-xl"
+              className="flex-1 border border-gray-300 text-gray-700 hover:bg-gray-50 py-3"
             >
               Cancel
-            </Button>
+            </button>
           </div>
         </form>
       </DialogContent>

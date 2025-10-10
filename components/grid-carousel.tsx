@@ -136,31 +136,27 @@ export function GridCarousel({
         </div>
 
         {/* Navigation Controls */}
-        <Button
-          variant="ghost"
-          size="lg"
+        <button
           className={cn(
-            "absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/40 text-white backdrop-blur-sm rounded-full w-10 h-10 sm:w-12 sm:h-12 transition-opacity duration-300",
+            "absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center",
             !canGoPrev && "opacity-50 cursor-not-allowed"
           )}
           onClick={prevSlide}
           disabled={!canGoPrev}
         >
           <ChevronLeft className="w-4 h-4 sm:w-6 sm:h-6" />
-        </Button>
+        </button>
         
-        <Button
-          variant="ghost"
-          size="lg"
+        <button
           className={cn(
-            "absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/40 text-white backdrop-blur-sm rounded-full w-10 h-10 sm:w-12 sm:h-12 transition-opacity duration-300",
+            "absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center",
             !canGoNext && "opacity-50 cursor-not-allowed"
           )}
           onClick={nextSlide}
           disabled={!canGoNext}
         >
           <ChevronRight className="w-4 h-4 sm:w-6 sm:h-6" />
-        </Button>
+        </button>
       </div>
 
       {/* Progress Indicator */}
@@ -170,10 +166,10 @@ export function GridCarousel({
             <button
               key={index}
               className={cn(
-                "w-2 h-2 rounded-full transition-all duration-300",
+                "w-2 h-2 transition-all duration-300",
                 index === currentIndex
-                  ? "bg-primary scale-125"
-                  : "bg-primary/30 hover:bg-primary/50"
+                  ? "bg-yellow-500"
+                  : "bg-gray-300 hover:bg-gray-400"
               )}
               onClick={() => setCurrentIndex(index)}
             />

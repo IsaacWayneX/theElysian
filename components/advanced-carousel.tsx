@@ -105,7 +105,7 @@ export function AdvancedCarousel({
         >
           {items.map((item, index) => (
             <div key={item.id} className="w-full flex-shrink-0">
-              <Card className="relative h-96 md:h-[500px] overflow-hidden bg-card/90 backdrop-blur-sm border-primary/20">
+              <div className="relative h-96 md:h-[500px] overflow-hidden bg-white">
                 {/* Background Image/Video */}
                 <div className="absolute inset-0">
                   {item.videoUrl ? (
@@ -126,11 +126,8 @@ export function AdvancedCarousel({
                     />
                   )}
                   
-                  {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-                  
-                  {/* Gold Ambient Lighting */}
-                  <div className="absolute inset-0 bg-gradient-radial from-yellow-500/10 via-amber-500/5 to-transparent" />
+                  {/* Simple overlay */}
+                  <div className="absolute inset-0 bg-black/30" />
                 </div>
 
                 {/* Content */}
@@ -139,7 +136,7 @@ export function AdvancedCarousel({
                     {/* Badge */}
                     {item.badge && (
                       <div className="mb-4">
-                        <span className="inline-block bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 px-4 py-2 rounded-full text-sm font-medium backdrop-blur-sm">
+                        <span className="inline-block bg-yellow-500 text-white px-4 py-2 text-sm font-medium">
                           {item.badge}
                         </span>
                       </div>
@@ -156,7 +153,7 @@ export function AdvancedCarousel({
                     </p>
                   </div>
                 </div>
-              </Card>
+              </div>
             </div>
           ))}
         </div>
@@ -164,35 +161,29 @@ export function AdvancedCarousel({
         {/* Navigation Controls */}
         {showControls && (
           <>
-            <Button
-              variant="ghost"
-              size="lg"
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/40 text-white backdrop-blur-sm rounded-full w-12 h-12"
+            <button
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 w-12 h-12 flex items-center justify-center"
               onClick={prevSlide}
             >
               <ChevronLeft className="w-6 h-6" />
-            </Button>
+            </button>
             
-            <Button
-              variant="ghost"
-              size="lg"
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/40 text-white backdrop-blur-sm rounded-full w-12 h-12"
+            <button
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 w-12 h-12 flex items-center justify-center"
               onClick={nextSlide}
             >
               <ChevronRight className="w-6 h-6" />
-            </Button>
+            </button>
           </>
         )}
 
         {/* Auto-play Toggle */}
-        <Button
-          variant="ghost"
-          size="sm"
-          className="absolute top-4 right-4 bg-black/20 hover:bg-black/40 text-white backdrop-blur-sm rounded-full w-10 h-10"
+        <button
+          className="absolute top-4 right-4 bg-white/90 hover:bg-white text-gray-800 w-10 h-10 flex items-center justify-center"
           onClick={toggleAutoPlay}
         >
           {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
-        </Button>
+        </button>
       </div>
 
       {/* Indicators */}
@@ -202,10 +193,10 @@ export function AdvancedCarousel({
             <button
               key={index}
               className={cn(
-                "w-3 h-3 rounded-full transition-all duration-300",
+                "w-3 h-3 transition-all duration-300",
                 index === currentIndex
-                  ? "bg-primary scale-125"
-                  : "bg-primary/30 hover:bg-primary/50"
+                  ? "bg-yellow-500"
+                  : "bg-gray-300 hover:bg-gray-400"
               )}
               onClick={() => goToSlide(index)}
             />

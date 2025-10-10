@@ -144,7 +144,7 @@ export default function ElysianSummitPage() {
 
             {/* Enhanced Main Headlines */}
             <div className="text-left space-y-6">
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight text-white leading-tight gold-glow" style={{ fontFamily: 'var(--font-nohemi)' }}>
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight text-white leading-tight" style={{ fontFamily: 'var(--font-nohemi)' }}>
             The Elysian Summit & Exhibition
           </h1>
               <h2 className="text-2xl md:text-3xl font-medium text-yellow-200 flex items-center gap-3" style={{ fontFamily: 'var(--font-nohemi)' }}>
@@ -162,22 +162,19 @@ export default function ElysianSummitPage() {
 
             {/* Enhanced CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-6 justify-start">
-            <Button 
-              size="lg" 
-                className="bg-yellow-600 hover:bg-yellow-700 text-white px-10 py-5 text-xl transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(234,179,8,0.8)] flex items-center gap-3 gold-border-glow"
+            <button 
+              className="bg-yellow-600 hover:bg-yellow-700 text-white px-10 py-5 text-xl flex items-center gap-3"
               onClick={openModal}
             >
                 <Star className="w-6 h-6" />
               Become an Exhibitor
                 <ArrowRight className="w-6 h-6" />
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-yellow-500/50 text-yellow-300 hover:bg-yellow-500/10 hover:text-yellow-200 px-10 py-5 text-xl transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(234,179,8,0.4)]"
+              </button>
+              <button 
+                className="bg-white text-gray-800 border border-gray-300 hover:bg-gray-50 px-10 py-5 text-xl"
               >
                 Book a Consultation
-            </Button>
+            </button>
             </div>
 
             {/* Enhanced Tagline */}
@@ -194,7 +191,7 @@ export default function ElysianSummitPage() {
       <AnimatedSection
         title="Featured Industries"
         subtitle="Discover the cutting-edge innovations transforming Nigeria's key sectors"
-        backgroundType="gradient"
+        backgroundType="white"
         className="scroll-mt-20"
         id="featured"
       >
@@ -209,7 +206,7 @@ export default function ElysianSummitPage() {
       <AnimatedSection
         title="Our Guiding Purpose"
         subtitle="Building the future through innovation and collaboration"
-        backgroundType="gradient"
+        backgroundType="white"
         className="scroll-mt-20"
         id="vision"
       >
@@ -235,7 +232,7 @@ export default function ElysianSummitPage() {
       <AnimatedSection
         title="Capital City Showcase 2026 – Forging the Future"
         subtitle="This year's edition celebrates Abuja as a hub where tradition meets modernity. From renewable energy & smart tech to oil & gas, real estate, construction, fashion, interior décor, and creative enterprise, the showcase positions Abuja as a true marketplace of ideas, partnerships, and innovation."
-        backgroundType="gradient"
+        backgroundType="white"
       >
         <GridCarousel
           items={showcaseVideos.map(item => ({ ...item, type: 'video' as const }))}
@@ -247,7 +244,7 @@ export default function ElysianSummitPage() {
       <AnimatedSection
         title="Summit & Exhibition Objectives"
         subtitle="Driving innovation and excellence across all sectors"
-        backgroundType="gradient"
+        backgroundType="white"
         className="scroll-mt-20"
         id="objectives"
       >
@@ -306,7 +303,7 @@ export default function ElysianSummitPage() {
       <AnimatedSection
         title="What to Expect"
         subtitle="Transformative outcomes and lasting impact"
-        backgroundType="gradient"
+        backgroundType="white"
       >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
             {[
@@ -319,9 +316,9 @@ export default function ElysianSummitPage() {
               "Launchpad for new products & ideas.",
               "Establishment of Abuja as a multi-industry innovation hub."
             ].map((outcome, index) => (
-            <div key={index} className="flex items-center space-x-4 p-4 bg-card/50 backdrop-blur-sm rounded-xl border border-primary/20">
-              <div className="w-4 h-4 bg-primary rounded-full flex-shrink-0 animate-pulse"></div>
-                <p className="text-foreground text-lg" style={{ fontFamily: 'var(--font-nohemi)' }}>{outcome}</p>
+            <div key={index} className="flex items-center space-x-4 p-4 bg-gray-50 rounded-xl border border-gray-200">
+              <div className="w-4 h-4 bg-yellow-500 rounded-full flex-shrink-0 animate-pulse"></div>
+                <p className="text-gray-800 text-lg" style={{ fontFamily: 'var(--font-nohemi)' }}>{outcome}</p>
               </div>
             ))}
           </div>
@@ -331,7 +328,7 @@ export default function ElysianSummitPage() {
       <AnimatedSection
         title="Who Should Attend?"
         subtitle="Join the community of visionaries and innovators"
-        backgroundType="gradient"
+        backgroundType="white"
       >
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             {[
@@ -376,7 +373,7 @@ export default function ElysianSummitPage() {
       <AnimatedSection
         title="Immersive Event Experiences"
         subtitle="Engage with cutting-edge technologies and innovative solutions"
-        backgroundType="gradient"
+        backgroundType="white"
       >
         <GridCarousel
           items={experienceCards}
@@ -388,63 +385,60 @@ export default function ElysianSummitPage() {
       <AnimatedSection
         title="Be Part of the Future"
         subtitle="Celebrate excellence. Elevate ideas. Shape the future at The Elysian Summit & Exhibition."
-        backgroundType="gradient"
+        backgroundType="white"
       >
         <div className="text-center">
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Button 
-              size="lg" 
-              className="bg-yellow-600 hover:bg-yellow-700 text-white px-12 py-6 text-xl transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(234,179,8,0.8)] flex items-center gap-3 gold-border-glow"
+            <button 
+              className="bg-yellow-600 hover:bg-yellow-700 text-white px-12 py-6 text-xl flex items-center gap-3"
               onClick={openModal}
             >
               <Star className="w-6 h-6" />
               Become an Exhibitor
               <ArrowRight className="w-6 h-6" />
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-yellow-500/50 text-yellow-300 hover:bg-yellow-500/10 hover:text-yellow-200 px-12 py-9 text-md transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(234,179,8,0.4)]"
+            </button>
+            <button 
+              className="bg-white text-gray-800 border border-gray-300 hover:bg-gray-50 px-12 py-6 text-xl"
             >
               Book a Consultation
-            </Button>
+            </button>
           </div>
         </div>
       </AnimatedSection>
 
       {/* Enhanced Footer */}
       <AnimatedSection
-        backgroundType="none"
-        className="scroll-mt-20 bg-black"
+        backgroundType="white"
+        className="scroll-mt-20"
       >
         <footer id="contact" className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-8">
               <div className="text-center md:text-left">
-              <h3 className="text-2xl font-bold text-gold-gradient mb-4" style={{ fontFamily: 'var(--font-nohemi)' }}>Event Details</h3>
-                <p className="text-foreground text-lg" style={{ fontFamily: 'var(--font-nohemi)' }}>Abuja, Nigeria — 2026</p>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4" style={{ fontFamily: 'var(--font-nohemi)' }}>Event Details</h3>
+                <p className="text-gray-700 text-lg" style={{ fontFamily: 'var(--font-nohemi)' }}>Abuja, Nigeria — 2026</p>
                 <Badge className="mt-2 bg-yellow-500/20 text-yellow-300 border-yellow-500/30">
                   <Sparkles className="w-3 h-3 mr-1" />
                   Coming Soon
                 </Badge>
             </div>
               <div className="text-center md:text-left">
-              <h3 className="text-2xl font-bold text-gold-gradient mb-4" style={{ fontFamily: 'var(--font-nohemi)' }}>Contact & Inquiries</h3>
-                <p className="text-foreground mb-2" style={{ fontFamily: 'var(--font-nohemi)' }}>
-                  <a href="mailto:theelysiansummitandexhibition@gmail.com" className="hover:text-primary transition-colors duration-300 flex items-center justify-center md:justify-start gap-2">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4" style={{ fontFamily: 'var(--font-nohemi)' }}>Contact & Inquiries</h3>
+                <p className="text-gray-700 mb-2" style={{ fontFamily: 'var(--font-nohemi)' }}>
+                  <a href="mailto:theelysiansummitandexhibition@gmail.com" className="hover:text-yellow-600 transition-colors duration-300 flex items-center justify-center md:justify-start gap-2">
                     <Mail className="w-4 h-4" />
                   theelysiansummitandexhibition@gmail.com
                 </a>
               </p>
-              <p className="text-foreground" style={{ fontFamily: 'var(--font-nohemi)' }}>
-                  <a href="tel:+2348114294274" className="hover:text-primary transition-colors duration-300 flex items-center justify-center md:justify-start gap-2">
+              <p className="text-gray-700" style={{ fontFamily: 'var(--font-nohemi)' }}>
+                  <a href="tel:+2348114294274" className="hover:text-yellow-600 transition-colors duration-300 flex items-center justify-center md:justify-start gap-2">
                     <Phone className="w-4 h-4" />
                   +234 8114 294 274
                 </a>
               </p>
             </div>
               <div className="text-center md:text-left">
-              <h3 className="text-2xl font-bold text-gold-gradient mb-4" style={{ fontFamily: 'var(--font-nohemi)' }}>Follow Us</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4" style={{ fontFamily: 'var(--font-nohemi)' }}>Follow Us</h3>
                 <div className="flex justify-center md:justify-start space-x-4">
                 {[
                   { name: "Facebook", icon: Facebook, color: "hover:text-blue-500" },
@@ -452,26 +446,24 @@ export default function ElysianSummitPage() {
                   { name: "Twitter", icon: Twitter, color: "hover:text-blue-400" },
                   { name: "Instagram", icon: Instagram, color: "hover:text-pink-500" }
                 ].map((platform) => (
-                  <Button 
+                  <button 
                     key={platform.name} 
-                    variant="outline" 
-                    size="sm" 
-                      className={`border-primary/30 text-primary hover:bg-primary/10 hover:text-primary transition-all duration-300 hover:scale-110 ${platform.color} rounded-full w-10 h-10`}
+                    className={`border border-gray-300 text-gray-700 hover:bg-gray-100 hover:text-gray-900 w-10 h-10 flex items-center justify-center ${platform.color}`}
                   >
                     <platform.icon className="h-4 w-4" />
-                  </Button>
+                  </button>
                 ))}
               </div>
             </div>
           </div>
           
-            <Separator className="my-8 bg-primary/20" />
+            <Separator className="my-8 bg-gray-200" />
           
           <div className="text-center">
-              <p className="text-foreground text-lg" style={{ fontFamily: 'var(--font-nohemi)' }}>
+              <p className="text-gray-700 text-lg" style={{ fontFamily: 'var(--font-nohemi)' }}>
                 © 2025 The Elysian Summit & Exhibition. All rights reserved.
               </p>
-              <p className="text-muted-foreground mt-2" style={{ fontFamily: 'var(--font-nohemi)' }}>
+              <p className="text-gray-500 mt-2" style={{ fontFamily: 'var(--font-nohemi)' }}>
                 Building the future of innovation
               </p>
             </div>
