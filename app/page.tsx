@@ -139,10 +139,7 @@ export default function ElysianSummitPage() {
           <div className="space-y-8">
             {/* Enhanced Badge */}
             <div className="flex justify-start">
-              <Badge className="bg-yellow-500/20 text-yellow-300 border-yellow-500/30 hover:bg-yellow-500/30 px-6 py-3 rounded-full text-sm font-medium backdrop-blur-sm shadow-lg">
-                <Sparkles className="w-4 h-4 mr-2" />
-            Capital City Showcase 2026
-          </Badge>
+         
             </div>
 
             {/* Enhanced Main Headlines */}
@@ -167,7 +164,7 @@ export default function ElysianSummitPage() {
             <div className="flex flex-col sm:flex-row gap-6 justify-start">
             <Button 
               size="lg" 
-                className="bg-yellow-600 hover:bg-yellow-700 text-white px-10 py-5 text-xl rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(234,179,8,0.8)] flex items-center gap-3 gold-border-glow"
+                className="bg-yellow-600 hover:bg-yellow-700 text-white px-10 py-5 text-xl transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(234,179,8,0.8)] flex items-center gap-3 gold-border-glow"
               onClick={openModal}
             >
                 <Star className="w-6 h-6" />
@@ -177,7 +174,7 @@ export default function ElysianSummitPage() {
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-yellow-500/50 text-yellow-300 hover:bg-yellow-500/10 hover:text-yellow-200 px-10 py-5 text-xl rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(234,179,8,0.4)]"
+                className="border-yellow-500/50 text-yellow-300 hover:bg-yellow-500/10 hover:text-yellow-200 px-10 py-5 text-xl transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(234,179,8,0.4)]"
               >
                 Book a Consultation
             </Button>
@@ -199,6 +196,7 @@ export default function ElysianSummitPage() {
         subtitle="Discover the cutting-edge innovations transforming Nigeria's key sectors"
         backgroundType="gradient"
         className="scroll-mt-20"
+        id="featured"
       >
         <AdvancedCarousel
           items={featuredIndustries}
@@ -213,6 +211,7 @@ export default function ElysianSummitPage() {
         subtitle="Building the future through innovation and collaboration"
         backgroundType="gradient"
         className="scroll-mt-20"
+        id="vision"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           <VideoCard
@@ -250,6 +249,7 @@ export default function ElysianSummitPage() {
         subtitle="Driving innovation and excellence across all sectors"
         backgroundType="gradient"
         className="scroll-mt-20"
+        id="objectives"
       >
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {[
@@ -394,7 +394,7 @@ export default function ElysianSummitPage() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Button 
               size="lg" 
-              className="bg-yellow-600 hover:bg-yellow-700 text-white px-12 py-6 text-xl rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(234,179,8,0.8)] flex items-center gap-3 gold-border-glow"
+              className="bg-yellow-600 hover:bg-yellow-700 text-white px-12 py-6 text-xl transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(234,179,8,0.8)] flex items-center gap-3 gold-border-glow"
               onClick={openModal}
             >
               <Star className="w-6 h-6" />
@@ -404,7 +404,7 @@ export default function ElysianSummitPage() {
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-yellow-500/50 text-yellow-300 hover:bg-yellow-500/10 hover:text-yellow-200 px-12 py-6 text-xl rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(234,179,8,0.4)]"
+              className="border-yellow-500/50 text-yellow-300 hover:bg-yellow-500/10 hover:text-yellow-200 px-12 py-9 text-md transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(234,179,8,0.4)]"
             >
               Book a Consultation
             </Button>

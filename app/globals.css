@@ -3,6 +3,11 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --background: oklch(0 0 0); /* Pure black background */
   --foreground: oklch(0.95 0.05 45); /* Light gold text */

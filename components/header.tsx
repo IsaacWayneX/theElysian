@@ -20,11 +20,21 @@ export function Header({ onOpenModal }: HeaderProps) {
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen)
 
   const navigationItems = [
-    { label: "About", href: "#about" },
+    { label: "Featured", href: "#featured" },
     { label: "Vision", href: "#vision" },
     { label: "Objectives", href: "#objectives" },
     { label: "Contact", href: "#contact" }
   ]
+
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href)
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      })
+    }
+  }
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-xl border-b border-yellow-500/30 shadow-lg shadow-black/20">
@@ -55,23 +65,20 @@ export function Header({ onOpenModal }: HeaderProps) {
               </div>
             </div>
             
-            {/* Event Badge */}
-            <Badge className="hidden md:flex bg-yellow-500/20 text-yellow-300 border-yellow-500/30 hover:bg-yellow-500/30">
-              Coming Soon
-            </Badge>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navigationItems.map((item) => (
-              <a
+              <button
                 key={item.label}
-                href={item.href}
-                className="text-white hover:text-yellow-300 transition-colors duration-200 font-medium"
+                onClick={() => scrollToSection(item.href)}
+                className="text-white hover:text-yellow-300 transition-all duration-300 font-medium relative group"
                 style={{ fontFamily: 'var(--font-nohemi)' }}
               >
                 {item.label}
-              </a>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-300 transition-all duration-300 group-hover:w-full"></span>
+              </button>
             ))}
           </nav>
 
@@ -118,23 +125,27 @@ export function Header({ onOpenModal }: HeaderProps) {
         </div>
 
         {/* Mobile Navigation Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden border-t border-yellow-500/30 bg-black/20 backdrop-blur-xl shadow-lg shadow-black/20">
+        <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+          isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        }`}>
+          <div className="border-t border-yellow-500/30 bg-black/20 backdrop-blur-xl shadow-lg shadow-black/20">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navigationItems.map((item) => (
-                <a
+                <button
                   key={item.label}
-                  href={item.href}
-                  className="block px-3 py-2 text-white hover:text-yellow-300 hover:bg-yellow-500/10 rounded-md transition-colors duration-200"
+                  onClick={() => {
+                    scrollToSection(item.href)
+                    setIsMenuOpen(false)
+                  }}
+                  className="block w-full text-left px-3 py-2 text-white hover:text-yellow-300 hover:bg-yellow-500/10 rounded-md transition-all duration-200 font-medium"
                   style={{ fontFamily: 'var(--font-nohemi)' }}
-                  onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
-                </a>
+                </button>
               ))}
               <div className="pt-2 border-t border-yellow-500/20">
                 <Button 
-                  className="w-full bg-yellow-600 hover:bg-yellow-700 text-white rounded-xl"
+                  className="w-full bg-yellow-600 hover:bg-yellow-700 text-white transition-all duration-300 hover:scale-105"
                   onClick={() => {
                     onOpenModal?.()
                     setIsMenuOpen(false)
@@ -145,7 +156,7 @@ export function Header({ onOpenModal }: HeaderProps) {
               </div>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </header>
   )

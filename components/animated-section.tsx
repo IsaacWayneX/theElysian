@@ -13,6 +13,7 @@ interface AnimatedSectionProps {
   backgroundType?: 'gradient' | 'video' | 'image' | 'none'
   backgroundUrl?: string
   overlay?: boolean
+  id?: string
 }
 
 export function AnimatedSection({
@@ -22,7 +23,8 @@ export function AnimatedSection({
   className = "",
   backgroundType = 'gradient',
   backgroundUrl,
-  overlay = true
+  overlay = true,
+  id
 }: AnimatedSectionProps) {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
@@ -88,6 +90,7 @@ export function AnimatedSection({
   return (
     <section
       ref={sectionRef}
+      id={id}
       className={cn("relative py-20 px-4 overflow-hidden", className)}
     >
       {/* Background */}
