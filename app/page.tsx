@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -408,47 +409,56 @@ export default function ElysianSummitPage() {
 
       {/* Enhanced Footer */}
       <AnimatedSection
-        backgroundType="white"
-        className="scroll-mt-20"
+        backgroundType="none"
+        className="scroll-mt-20 bg-black"
       >
         <footer id="contact" className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-8">
               <div className="text-center md:text-left">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4" style={{ fontFamily: 'var(--font-nohemi)' }}>Event Details</h3>
-                <p className="text-gray-700 text-lg" style={{ fontFamily: 'var(--font-nohemi)' }}>Abuja, Nigeria — 2026</p>
+                <div className="flex items-center justify-center md:justify-start mb-4">
+                  <div className="w-16 h-16 relative">
+                    <Image
+                      src="/ELYSIAN LOGO no background.png"
+                      alt="Elysian Summit Logo"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
+                <p className="text-white text-lg" style={{ fontFamily: 'var(--font-nohemi)' }}>Abuja, Nigeria — 2026</p>
                 <Badge className="mt-2 bg-yellow-500/20 text-yellow-300 border-yellow-500/30">
                   <Sparkles className="w-3 h-3 mr-1" />
                   Coming Soon
                 </Badge>
             </div>
               <div className="text-center md:text-left">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4" style={{ fontFamily: 'var(--font-nohemi)' }}>Contact & Inquiries</h3>
-                <p className="text-gray-700 mb-2" style={{ fontFamily: 'var(--font-nohemi)' }}>
-                  <a href="mailto:theelysiansummitandexhibition@gmail.com" className="hover:text-yellow-600 transition-colors duration-300 flex items-center justify-center md:justify-start gap-2">
+              <h3 className="text-2xl font-bold text-white mb-4" style={{ fontFamily: 'var(--font-nohemi)' }}>Contact & Inquiries</h3>
+                <p className="text-gray-300 mb-2" style={{ fontFamily: 'var(--font-nohemi)' }}>
+                  <a href="mailto:theelysiansummitandexhibition@gmail.com" className="hover:text-yellow-400 transition-colors duration-300 flex items-center justify-center md:justify-start gap-2">
                     <Mail className="w-4 h-4" />
                   theelysiansummitandexhibition@gmail.com
                 </a>
               </p>
-              <p className="text-gray-700" style={{ fontFamily: 'var(--font-nohemi)' }}>
-                  <a href="tel:+2348114294274" className="hover:text-yellow-600 transition-colors duration-300 flex items-center justify-center md:justify-start gap-2">
+              <p className="text-gray-300" style={{ fontFamily: 'var(--font-nohemi)' }}>
+                  <a href="tel:+2348114294274" className="hover:text-yellow-400 transition-colors duration-300 flex items-center justify-center md:justify-start gap-2">
                     <Phone className="w-4 h-4" />
                   +234 8114 294 274
                 </a>
               </p>
             </div>
               <div className="text-center md:text-left">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4" style={{ fontFamily: 'var(--font-nohemi)' }}>Follow Us</h3>
+              <h3 className="text-2xl font-bold text-white mb-4" style={{ fontFamily: 'var(--font-nohemi)' }}>Follow Us</h3>
                 <div className="flex justify-center md:justify-start space-x-4">
                 {[
-                  { name: "Facebook", icon: Facebook, color: "hover:text-blue-500" },
-                  { name: "LinkedIn", icon: Linkedin, color: "hover:text-blue-600" },
+                  { name: "Facebook", icon: Facebook, color: "hover:text-blue-400" },
+                  { name: "LinkedIn", icon: Linkedin, color: "hover:text-blue-400" },
                   { name: "Twitter", icon: Twitter, color: "hover:text-blue-400" },
-                  { name: "Instagram", icon: Instagram, color: "hover:text-pink-500" }
+                  { name: "Instagram", icon: Instagram, color: "hover:text-pink-400" }
                 ].map((platform) => (
                   <button 
                     key={platform.name} 
-                    className={`border border-gray-300 text-gray-700 hover:bg-gray-100 hover:text-gray-900 w-10 h-10 flex items-center justify-center ${platform.color}`}
+                    className={`border border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white w-10 h-10 flex items-center justify-center ${platform.color}`}
                   >
                     <platform.icon className="h-4 w-4" />
                   </button>
@@ -457,13 +467,13 @@ export default function ElysianSummitPage() {
             </div>
           </div>
           
-            <Separator className="my-8 bg-gray-200" />
+            <Separator className="my-8 bg-gray-700" />
           
           <div className="text-center">
-              <p className="text-gray-700 text-lg" style={{ fontFamily: 'var(--font-nohemi)' }}>
+              <p className="text-gray-300 text-lg" style={{ fontFamily: 'var(--font-nohemi)' }}>
                 © 2025 The Elysian Summit & Exhibition. All rights reserved.
               </p>
-              <p className="text-gray-500 mt-2" style={{ fontFamily: 'var(--font-nohemi)' }}>
+              <p className="text-gray-400 mt-2" style={{ fontFamily: 'var(--font-nohemi)' }}>
                 Building the future of innovation
               </p>
             </div>
