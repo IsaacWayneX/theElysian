@@ -9,9 +9,10 @@ import Image from "next/image"
 
 interface HeaderProps {
   onOpenModal?: () => void
+  onOpenConsultationModal?: () => void
 }
 
-export function Header({ onOpenModal }: HeaderProps) {
+export function Header({ onOpenModal, onOpenConsultationModal }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const isMobile = useIsMobile()
@@ -101,7 +102,7 @@ export function Header({ onOpenModal }: HeaderProps) {
             {/* CTA Button */}
             <button 
               className="bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-2"
-              onClick={onOpenModal}
+              onClick={onOpenConsultationModal}
             >
               Book a consultation
             </button>
@@ -145,7 +146,7 @@ export function Header({ onOpenModal }: HeaderProps) {
                 <button 
                   className="w-full bg-yellow-600 hover:bg-yellow-700 text-white py-3"
                   onClick={() => {
-                    onOpenModal?.()
+                    onOpenConsultationModal?.()
                     setIsMenuOpen(false)
                   }}
                 >

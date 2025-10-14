@@ -5,8 +5,9 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
-import { ArrowRight, Users, Globe, Lightbulb, Award, Handshake, TrendingUp, Building2, Palette, Zap, Facebook, Linkedin, Twitter, Instagram, Play, Star, Sparkles, Mail, Phone } from "lucide-react"
-import { ExhibitorRegistrationModal } from "@/components/exhibitor-registration-modal"
+import { Users, Globe, Lightbulb, Award, Handshake, TrendingUp, Building2, Palette, Zap, Facebook, Linkedin, Twitter, Instagram, Play, Sparkles, Mail, Phone } from "lucide-react"
+import { MultiStepExhibitorForm } from "@/components/multi-step-exhibitor-form"
+import { ConsultationModal } from "@/components/consultation-modal"
 import { Header } from "@/components/header"
 import { ImageCard } from "@/components/image-card"
 import { VideoCard } from "@/components/video-card"
@@ -17,9 +18,12 @@ import { useState } from "react"
 
 export default function ElysianSummitPage() {
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false)
 
   const openModal = () => setIsModalOpen(true)
   const closeModal = () => setIsModalOpen(false)
+  const openConsultationModal = () => setIsConsultationModalOpen(true)
+  const closeConsultationModal = () => setIsConsultationModalOpen(false)
 
   // Sample data for carousels and cards
   const featuredIndustries = [
@@ -100,7 +104,7 @@ export default function ElysianSummitPage() {
 
   return (
     <div className="min-h-screen bg-black">
-      <Header onOpenModal={openModal} />
+      <Header onOpenModal={openModal} onOpenConsultationModal={openConsultationModal} />
       
       {/* Enhanced Hero Section */}
       <section className="relative min-h-screen flex flex-col justify-end overflow-hidden pt-20">
@@ -164,15 +168,14 @@ export default function ElysianSummitPage() {
             {/* Enhanced CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-6 justify-start">
             <button 
-              className="bg-yellow-600 hover:bg-yellow-700 text-white px-10 py-5 text-xl flex items-center gap-3"
+              className="bg-yellow-600 hover:bg-yellow-700 text-white px-10 py-5 text-xl"
               onClick={openModal}
             >
-                <Star className="w-6 h-6" />
               Become an Exhibitor
-                <ArrowRight className="w-6 h-6" />
-              </button>
+            </button>
               <button 
                 className="bg-white text-gray-800 border border-gray-300 hover:bg-gray-50 px-10 py-5 text-xl"
+                onClick={openConsultationModal}
               >
                 Book a Consultation
             </button>
@@ -391,15 +394,14 @@ export default function ElysianSummitPage() {
         <div className="text-center">
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <button 
-              className="bg-yellow-600 hover:bg-yellow-700 text-white px-12 py-6 text-xl flex items-center gap-3"
+              className="bg-yellow-600 hover:bg-yellow-700 text-white px-12 py-6 text-xl"
               onClick={openModal}
             >
-              <Star className="w-6 h-6" />
               Become an Exhibitor
-              <ArrowRight className="w-6 h-6" />
             </button>
             <button 
               className="bg-white text-gray-800 border border-gray-300 hover:bg-gray-50 px-12 py-6 text-xl"
+              onClick={openConsultationModal}
             >
               Book a Consultation
             </button>
@@ -481,8 +483,11 @@ export default function ElysianSummitPage() {
       </footer>
       </AnimatedSection>
 
-      {/* Exhibitor Registration Modal */}
-      <ExhibitorRegistrationModal isOpen={isModalOpen} onClose={closeModal} />
+      {/* Multi-Step Exhibitor Registration Form */}
+      <MultiStepExhibitorForm isOpen={isModalOpen} onClose={closeModal} />
+      
+      {/* Consultation Modal */}
+      <ConsultationModal isOpen={isConsultationModalOpen} onClose={closeConsultationModal} />
     </div>
   )
 }

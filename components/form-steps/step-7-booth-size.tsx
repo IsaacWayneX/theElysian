@@ -1,0 +1,144 @@
+"use client"
+
+import { useState } from "react"
+import { Button } from "@/components/ui/button"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Label } from "@/components/ui/label"
+import { ArrowRight, ArrowLeft } from "lucide-react"
+import { useMultiStepForm } from "@/components/multi-step-form-context"
+import { ZigzagUnderline } from "@/components/svg-zigzag-underline"
+import { SVGStars } from "@/components/svg-stars"
+import Image from "next/image"
+
+const boothSizes = [
+  { value: "3x3", label: "3m x 3m (Standard)", description: "Perfect for startups and small businesses" },
+  { value: "4x4", label: "4m x 4m (Large)", description: "Ideal for established companies" },
+  { value: "6x4", label: "6m x 4m (Premium)", description: "For major industry players" },
+  { value: "custom", label: "Custom Size", description: "Let's discuss your specific needs" }
+]
+
+export function Step7BoothSize() {
+  const { formData, updateFormData, nextStep, prevStep } = useMultiStepForm()
+  const [value, setValue] = useState(formData.boothSize)
+
+  const handleContinue = () => {
+    if (value) {
+      updateFormData('boothSize', value)
+      nextStep()
+    }
+  }
+
+  const selectedBooth = boothSizes.find(booth => booth.value === value)
+
+  return (
+    <div className="min-h-screen bg-black flex items-center justify-center relative overflow-hidden">
+      {/* Content Container */}
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-center md:justify-between py-4 md:py-0">
+        {/* Left Side - Text Content */}
+        <div className="flex-1 max-w-2xl w-full md:max-w-2xl">
+          <div className="space-y-6 md:space-y-12">
+            {/* Title with Zigzag Underline */}
+            <div className="space-y-3 md:space-y-6">
+              <h1 className="text-2xl sm:text-3xl md:text-6xl font-black text-white leading-tight text-center md:text-left" style={{ fontFamily: 'var(--font-nohemi)' }}>
+                What booth size do you prefer?
+              </h1>
+              <ZigzagUnderline className="w-full" />
+            </div>
+
+            {/* Subtitle */}
+            <p className="text-sm sm:text-lg md:text-2xl text-gray-300 text-center md:text-left font-bold" style={{ fontFamily: 'var(--font-nohemi)' }}>
+              Choose the perfect space to showcase your innovations and connect with visitors.
+            </p>
+
+            {/* Form */}
+            <div className="space-y-4 md:space-y-8">
+              <div className="space-y-2 md:space-y-4">
+                <Label htmlFor="boothSize" className="text-white text-sm sm:text-lg md:text-2xl font-bold block text-center md:text-left" style={{ fontFamily: 'var(--font-nohemi)' }}>
+                  Preferred Booth Size
+                </Label>
+                <Select value={value} onValueChange={setValue}>
+                  <SelectTrigger className="bg-transparent border-0 border-b border-gray-600 text-white text-2xl sm:text-4xl md:text-6xl font-black py-3 md:py-6 px-0 focus:border-gray-600 focus:ring-0 focus:outline-none rounded-none">
+                    <SelectValue placeholder="Select booth size" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-gray-900 border-gray-700">
+                    {boothSizes.map((booth) => (
+                      <SelectItem 
+                        key={booth.value} 
+                        value={booth.value}
+                        className="text-white hover:bg-gray-800 focus:bg-gray-800 text-sm sm:text-lg md:text-xl font-bold"
+                      >
+                        <div className="flex flex-col items-start">
+                          <span className="font-bold">{booth.label}</span>
+                          <span className="text-xs sm:text-sm text-gray-400">{booth.description}</span>
+                        </div>
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              {/* Selected Booth Info */}
+              {selectedBooth && (
+                <div className="bg-transparent border-2 border-gray-600 p-3 md:p-6 text-center md:text-left">
+                  <p className="text-yellow-300 text-sm sm:text-lg md:text-xl font-bold" style={{ fontFamily: 'var(--font-nohemi)' }}>
+                    {selectedBooth.label}
+                  </p>
+                  <p className="text-gray-300 text-xs sm:text-base md:text-lg" style={{ fontFamily: 'var(--font-nohemi)' }}>
+                    {selectedBooth.description}
+                  </p>
+                </div>
+              )}
+
+              {/* Navigation Buttons */}
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 pt-4 md:pt-8">
+                <Button
+                  onClick={prevStep}
+                  className="flex-1 border-2 border-white text-white hover:bg-white hover:text-black px-4 sm:px-16 py-4 sm:py-8 text-sm sm:text-xl md:text-2xl font-bold rounded-none bg-transparent"
+                >
+                  <ArrowLeft className="w-4 h-4 sm:w-8 sm:h-8 mr-2 sm:mr-4" />
+                  Back
+                </Button>
+                <Button
+                  onClick={handleContinue}
+                  disabled={!value}
+                  className="flex-1 bg-white hover:bg-gray-100 text-black px-4 sm:px-16 py-4 sm:py-8 text-sm sm:text-xl md:text-2xl font-bold flex items-center justify-center gap-2 sm:gap-4 disabled:opacity-50 disabled:cursor-not-allowed rounded-none border-0"
+                >
+                  Continue
+                  <ArrowRight className="w-4 h-4 sm:w-8 sm:h-8" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Progress Indicator */}
+            <div className="flex space-x-2 md:space-x-3 pt-6 md:pt-12 justify-center md:justify-start">
+              <div className="w-3 h-3 md:w-4 md:h-4 bg-yellow-500" />
+              <div className="w-3 h-3 md:w-4 md:h-4 bg-yellow-500" />
+              <div className="w-3 h-3 md:w-4 md:h-4 bg-yellow-500" />
+              <div className="w-3 h-3 md:w-4 md:h-4 bg-yellow-500" />
+              <div className="w-3 h-3 md:w-4 md:h-4 bg-yellow-500" />
+              <div className="w-3 h-3 md:w-4 md:h-4 bg-yellow-500" />
+              <div className="w-3 h-3 md:w-4 md:h-4 bg-yellow-500" />
+              <div className="w-3 h-3 md:w-4 md:h-4 bg-gray-600" />
+              <div className="w-3 h-3 md:w-4 md:h-4 bg-gray-600" />
+              <div className="w-3 h-3 md:w-4 md:h-4 bg-gray-600" />
+            </div>
+          </div>
+        </div>
+
+        {/* Right Side - Image - Hidden on Mobile */}
+        <div className="hidden md:flex flex-1 max-w-lg md:ml-16 relative w-full">
+          <div className="relative">
+            <Image
+              src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&h=800&fit=crop"
+              alt="Exhibition booth setup"
+              width={600}
+              height={600}
+              className="object-cover w-full h-auto rounded-lg shadow-2xl"
+            />
+            <SVGStars />
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
