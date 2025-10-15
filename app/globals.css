@@ -83,6 +83,15 @@ html {
 }
 
 @layer utilities {
+  /* Hide scrollbars while maintaining scroll functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
+  }
+
   .text-gold-gradient {
     /* Made gradient more purely gold, removed red tones */
     background: linear-gradient(135deg, oklch(0.9 0.25 50), oklch(0.8 0.2 45), oklch(0.95 0.3 55));
@@ -171,5 +180,14 @@ html {
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-nohemi), sans-serif;
+  }
+  
+  /* Hide scrollbars on the entire website */
+  html, body {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+  }
+  html::-webkit-scrollbar, body::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
   }
 }

@@ -31,7 +31,7 @@ export default function ElysianSummitPage() {
       id: '1',
       title: 'Oil & Gas Innovation',
       description: 'Revolutionary technologies transforming energy production and distribution across Nigeria.',
-      imageUrl: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&h=600&fit=crop',
+      imageUrl: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop',
       badge: 'Energy',
       category: 'Innovation'
     },
@@ -39,7 +39,7 @@ export default function ElysianSummitPage() {
       id: '2',
       title: 'Fintech Revolution',
       description: 'Digital banking solutions and blockchain technologies reshaping financial services.',
-      imageUrl: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&h=600&fit=crop',
+      imageUrl: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop',
       badge: 'Finance',
       category: 'Technology'
     },
@@ -47,7 +47,7 @@ export default function ElysianSummitPage() {
       id: '3',
       title: 'Smart Construction',
       description: 'AI-powered building technologies and sustainable construction methods.',
-      imageUrl: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&h=600&fit=crop',
+      imageUrl: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop',
       badge: 'Construction',
       category: 'Smart Tech'
     }
@@ -77,7 +77,7 @@ export default function ElysianSummitPage() {
       id: '1',
       title: 'Live Demonstrations',
       description: 'Interactive showcases of cutting-edge technologies and innovative solutions.',
-      imageUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=600&fit=crop',
+      imageUrl: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop',
       badge: 'Interactive',
       category: 'Experience',
       type: 'image' as const
@@ -95,7 +95,7 @@ export default function ElysianSummitPage() {
       id: '3',
       title: 'Networking Hub',
       description: 'Connect with like-minded professionals and potential business partners.',
-      imageUrl: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&h=600&fit=crop',
+      imageUrl: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop',
       badge: 'Connect',
       category: 'Networking',
       type: 'image' as const
@@ -257,37 +257,37 @@ export default function ElysianSummitPage() {
             {
               title: "Innovation Showcase",
               description: "Showcase cutting-edge innovations & disruptive technologies.",
-              imageUrl: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=600&fit=crop",
+              imageUrl: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
               badge: "Innovation"
             },
             {
               title: "Cross-Industry Collaboration",
               description: "Foster cross-industry collaboration and partnerships.",
-              imageUrl: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&h=600&fit=crop",
+              imageUrl: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
               badge: "Collaboration"
             },
             {
               title: "Excellence & Craftsmanship",
               description: "Highlight excellence & craftsmanship across all industries.",
-              imageUrl: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&h=600&fit=crop",
+              imageUrl: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
               badge: "Excellence"
             },
             {
               title: "Sustainable Solutions",
               description: "Promote sustainable & smart solutions for the future.",
-              imageUrl: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&h=600&fit=crop",
+              imageUrl: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
               badge: "Sustainability"
             },
             {
               title: "Investment Opportunities",
               description: "Enable investment & business opportunities for growth.",
-              imageUrl: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&h=600&fit=crop",
+              imageUrl: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
               badge: "Investment"
             },
             {
               title: "Digital Transformation",
               description: "Drive digital transformation in traditional sectors.",
-              imageUrl: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&h=600&fit=crop",
+              imageUrl: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
               badge: "Digital"
             }
             ].map((objective, index) => (
@@ -339,25 +339,25 @@ export default function ElysianSummitPage() {
               {
                 title: "Investors",
               description: "Discover the next big opportunity.",
-              imageUrl: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&h=600&fit=crop",
+              imageUrl: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
               badge: "Investment"
               },
               {
                 title: "Business Leaders",
               description: "Build strategic partnerships.",
-              imageUrl: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&h=600&fit=crop",
+              imageUrl: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
               badge: "Leadership"
               },
               {
                 title: "Innovators & Creatives",
               description: "Gain global exposure.",
-              imageUrl: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=600&fit=crop",
+              imageUrl: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
               badge: "Innovation"
               },
               {
                 title: "SMEs & Startups",
               description: "Connect with markets & investors.",
-              imageUrl: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&h=600&fit=crop",
+              imageUrl: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
               badge: "Growth"
               }
             ].map((audience, index) => (

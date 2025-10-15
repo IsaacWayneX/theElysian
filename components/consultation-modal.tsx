@@ -86,7 +86,7 @@ export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-2 sm:p-4">
-      <div className="relative w-full max-w-2xl mx-auto bg-black border-2 border-yellow-500/30 shadow-2xl max-h-[95vh] sm:max-h-[90vh] overflow-y-auto">
+      <div className="relative w-full max-w-2xl mx-auto bg-black border-2 border-yellow-500/30 shadow-2xl max-h-[95vh] sm:max-h-[90vh] overflow-y-auto scrollbar-hide">
         {/* Close Button */}
         <button
           onClick={onClose}

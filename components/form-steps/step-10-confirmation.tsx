@@ -36,10 +36,10 @@ export function Step10Confirmation() {
   return (
     <div className="h-screen bg-black flex items-center justify-center relative overflow-hidden">
       {/* Content Container */}
-      <div className="w-full max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-center md:justify-between py-4 md:py-0 h-full">
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-center md:justify-between h-full">
         {/* Left Side - Text Content */}
-        <div className="flex-1 max-w-2xl w-full md:max-w-2xl flex flex-col justify-center">
-          <div className="space-y-4 md:space-y-8 overflow-y-auto max-h-[95vh] md:max-h-full">
+        <div className="flex-1 max-w-2xl w-full md:max-w-2xl h-full flex flex-col justify-center">
+          <div className="space-y-4 md:space-y-8 overflow-y-auto max-h-full pr-2 py-4 scrollbar-hide">
             {/* Title with Zigzag Underline */}
             <div className="space-y-2 md:space-y-4">
               <h1 className="text-xl sm:text-2xl md:text-4xl font-black text-white leading-tight text-center md:text-left" style={{ fontFamily: 'var(--font-nohemi)' }}>
@@ -54,7 +54,7 @@ export function Step10Confirmation() {
             </p>
 
             {/* Review List */}
-            <div className="space-y-3 md:space-y-6">
+            <div className="space-y-2 md:space-y-4">
               {/* Desktop: 2 Column Layout */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 {/* Left Column */}
@@ -164,16 +164,16 @@ export function Step10Confirmation() {
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 pt-3 md:pt-6">
               <Button
                 onClick={prevStep}
-                className="flex-1 border-2 border-white text-white hover:bg-white hover:text-black px-4 sm:px-16 py-4 sm:py-8 text-sm sm:text-xl md:text-2xl font-bold rounded-none bg-transparent"
+                className="flex-1 border-2 border-white text-white hover:bg-white hover:text-black px-4 sm:px-12 py-3 sm:py-6 text-sm sm:text-lg md:text-xl lg:text-2xl font-bold rounded-none bg-transparent"
                 disabled={isSubmitting || submitStatus === 'success'}
               >
-                <ArrowLeft className="w-4 h-4 sm:w-8 sm:h-8 mr-2 sm:mr-4" />
+                <ArrowLeft className="w-4 h-4 sm:w-6 sm:h-6 mr-2 sm:mr-4" />
                 Back
               </Button>
               <Button
                 onClick={handleSubmit}
                 disabled={isSubmitting || submitStatus === 'success'}
-                className="flex-1 bg-white hover:bg-gray-100 text-black px-4 sm:px-16 py-4 sm:py-8 text-sm sm:text-xl md:text-2xl font-bold flex items-center justify-center gap-2 sm:gap-4 disabled:opacity-50 disabled:cursor-not-allowed rounded-none border-0"
+                className="flex-1 bg-white hover:bg-gray-100 text-black px-4 sm:px-12 py-3 sm:py-6 text-sm sm:text-lg md:text-xl lg:text-2xl font-bold flex items-center justify-center gap-2 sm:gap-4 disabled:opacity-50 disabled:cursor-not-allowed rounded-none border-0"
               >
               {isSubmitting ? (
                 "Submitting..."
@@ -211,7 +211,7 @@ export function Step10Confirmation() {
         <div className="hidden md:flex flex-1 max-w-lg md:ml-16 relative w-full">
           <div className="relative">
             <Image
-              src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&h=800&fit=crop"
+              src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=800&fit=crop"
               alt="Success and confirmation"
               width={600}
               height={600}
