@@ -11,13 +11,20 @@ import { SVGStars } from "@/components/svg-stars"
 import Image from "next/image"
 
 const industries = [
-  { value: "oil-gas", label: "Oil & Gas" },
-  { value: "fintech", label: "Fintech & Banking" },
-  { value: "fashion", label: "Fashion & Design" },
-  { value: "construction", label: "Real Estate & Construction" },
-  { value: "tech", label: "Smart Technologies" },
-  { value: "logistics", label: "Logistics & Transport" },
-  { value: "creative", label: "Creative Industries" },
+  { value: "energy", label: "Energy" },
+  { value: "real-estate", label: "Real Estate" },
+  { value: "fashion", label: "Fashion" },
+  { value: "banking", label: "Banking" },
+  { value: "creative-industry", label: "Creative Industry" },
+  { value: "logistics", label: "Logistics" },
+  { value: "interior-decor", label: "Interior Decor" },
+  { value: "smart-technologies", label: "Smart Technologies" },
+  { value: "automobile", label: "Automobile" },
+  { value: "agriculture", label: "Agriculture" },
+  { value: "oil-gas", label: "Oil and Gas" },
+  { value: "health-wellness", label: "Health and Wellness" },
+  { value: "education", label: "Education" },
+  { value: "security", label: "Security" },
   { value: "other", label: "Other" }
 ]
 

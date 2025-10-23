@@ -25,31 +25,127 @@ export default function ElysianSummitPage() {
   const openConsultationModal = () => setIsConsultationModalOpen(true)
   const closeConsultationModal = () => setIsConsultationModalOpen(false)
 
-  // Sample data for carousels and cards
+  // Featured Industries from the form
   const featuredIndustries = [
     {
       id: '1',
-      title: 'Oil & Gas Innovation',
-      description: 'Revolutionary technologies transforming energy production and distribution across Nigeria.',
-      imageUrl: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop',
+      title: 'Energy Sector',
+      description: 'Revolutionary technologies transforming energy production, distribution, and renewable energy solutions across Nigeria.',
+      imageUrl: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=800&h=600&fit=crop',
       badge: 'Energy',
       category: 'Innovation'
     },
     {
       id: '2',
-      title: 'Fintech Revolution',
-      description: 'Digital banking solutions and blockchain technologies reshaping financial services.',
-      imageUrl: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop',
-      badge: 'Finance',
-      category: 'Technology'
+      title: 'Real Estate Development',
+      description: 'Smart city planning, sustainable housing solutions, and innovative property technologies reshaping urban landscapes.',
+      imageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop',
+      badge: 'Real Estate',
+      category: 'Development'
     },
     {
       id: '3',
-      title: 'Smart Construction',
-      description: 'AI-powered building technologies and sustainable construction methods.',
+      title: 'Fashion & Design',
+      description: 'Cutting-edge fashion technology, sustainable textiles, and innovative design solutions from Nigerian creatives.',
+      imageUrl: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop',
+      badge: 'Fashion',
+      category: 'Creative'
+    },
+    {
+      id: '4',
+      title: 'Banking & Finance',
+      description: 'Digital banking solutions, fintech innovations, and blockchain technologies reshaping financial services.',
+      imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
+      badge: 'Banking',
+      category: 'Technology'
+    },
+    {
+      id: '5',
+      title: 'Creative Industry',
+      description: 'Digital media, entertainment technology, and innovative content creation platforms driving cultural innovation.',
+      imageUrl: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=600&fit=crop',
+      badge: 'Creative',
+      category: 'Media'
+    },
+    {
+      id: '6',
+      title: 'Logistics & Supply Chain',
+      description: 'Smart logistics solutions, automated warehousing, and supply chain optimization technologies.',
+      imageUrl: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=600&fit=crop',
+      badge: 'Logistics',
+      category: 'Operations'
+    },
+    {
+      id: '7',
+      title: 'Interior Design & Decor',
+      description: 'Smart home technologies, sustainable materials, and innovative interior design solutions.',
+      imageUrl: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop',
+      badge: 'Interior',
+      category: 'Design'
+    },
+    {
+      id: '8',
+      title: 'Smart Technologies',
+      description: 'IoT solutions, AI applications, and smart city technologies transforming everyday experiences.',
+      imageUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=600&fit=crop',
+      badge: 'Smart Tech',
+      category: 'Innovation'
+    },
+    {
+      id: '9',
+      title: 'Automobile Industry',
+      description: 'Electric vehicles, autonomous driving technologies, and sustainable transportation solutions.',
+      imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
+      badge: 'Automobile',
+      category: 'Transportation'
+    },
+    {
+      id: '10',
+      title: 'Agriculture & AgTech',
+      description: 'Precision farming, smart irrigation systems, and sustainable agricultural technologies.',
+      imageUrl: 'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=800&h=600&fit=crop',
+      badge: 'Agriculture',
+      category: 'Sustainability'
+    },
+    {
+      id: '11',
+      title: 'Oil & Gas Innovation',
+      description: 'Advanced drilling technologies, renewable energy integration, and sustainable extraction methods.',
       imageUrl: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop',
-      badge: 'Construction',
-      category: 'Smart Tech'
+      badge: 'Oil & Gas',
+      category: 'Energy'
+    },
+    {
+      id: '12',
+      title: 'Health & Wellness',
+      description: 'Telemedicine platforms, health monitoring devices, and innovative healthcare solutions.',
+      imageUrl: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=600&fit=crop',
+      badge: 'Health',
+      category: 'Wellness'
+    },
+    {
+      id: '13',
+      title: 'Education Technology',
+      description: 'E-learning platforms, virtual reality education, and innovative learning management systems.',
+      imageUrl: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop',
+      badge: 'Education',
+      category: 'EdTech'
+    },
+    {
+      id: '14',
+      title: 'Security & Safety',
+      description: 'Cybersecurity solutions, smart surveillance systems, and advanced security technologies.',
+      imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
+      badge: 'Security',
+      category: 'Protection'
+    },
+    {
+      id: '15',
+      title: 'Emerging Industries',
+      description: 'Innovative solutions and breakthrough technologies across diverse sectors and emerging markets.',
+      imageUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=600&fit=crop',
+      badge: 'Other',
+      category: 'Innovation'
     }
   ]
 
@@ -77,7 +173,7 @@ export default function ElysianSummitPage() {
       id: '1',
       title: 'Live Demonstrations',
       description: 'Interactive showcases of cutting-edge technologies and innovative solutions.',
-      imageUrl: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop',
+      imageUrl: '/excellent craftmanship/Image_fx (93).jpg',
       badge: 'Interactive',
       category: 'Experience',
       type: 'image' as const
@@ -95,7 +191,7 @@ export default function ElysianSummitPage() {
       id: '3',
       title: 'Networking Hub',
       description: 'Connect with like-minded professionals and potential business partners.',
-      imageUrl: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop',
+      imageUrl: '/cross industry collaboration/Image_fx (85).jpg',
       badge: 'Connect',
       category: 'Networking',
       type: 'image' as const
@@ -257,37 +353,37 @@ export default function ElysianSummitPage() {
             {
               title: "Innovation Showcase",
               description: "Showcase cutting-edge innovations & disruptive technologies.",
-              imageUrl: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
+              imageUrl: "/innovate collaboration/Image_fx (86).jpg",
               badge: "Innovation"
             },
             {
               title: "Cross-Industry Collaboration",
               description: "Foster cross-industry collaboration and partnerships.",
-              imageUrl: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
+              imageUrl: "/cross industry collaboration/Image_fx (82).jpg",
               badge: "Collaboration"
             },
             {
               title: "Excellence & Craftsmanship",
               description: "Highlight excellence & craftsmanship across all industries.",
-              imageUrl: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
+              imageUrl: "/excellent craftmanship/Image_fx (90).jpg",
               badge: "Excellence"
             },
             {
               title: "Sustainable Solutions",
               description: "Promote sustainable & smart solutions for the future.",
-              imageUrl: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
+              imageUrl: "/innovate collaboration/Image_fx (87).jpg",
               badge: "Sustainability"
             },
             {
               title: "Investment Opportunities",
               description: "Enable investment & business opportunities for growth.",
-              imageUrl: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
+              imageUrl: "/cross industry collaboration/Image_fx (83).jpg",
               badge: "Investment"
             },
             {
               title: "Digital Transformation",
               description: "Drive digital transformation in traditional sectors.",
-              imageUrl: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
+              imageUrl: "/excellent craftmanship/Image_fx (91).jpg",
               badge: "Digital"
             }
             ].map((objective, index) => (
@@ -339,25 +435,25 @@ export default function ElysianSummitPage() {
               {
                 title: "Investors",
               description: "Discover the next big opportunity.",
-              imageUrl: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
+              imageUrl: "/cross industry collaboration/Image_fx (84).jpg",
               badge: "Investment"
               },
               {
                 title: "Business Leaders",
               description: "Build strategic partnerships.",
-              imageUrl: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
+              imageUrl: "/innovate collaboration/Image_fx (88).jpg",
               badge: "Leadership"
               },
               {
                 title: "Innovators & Creatives",
               description: "Gain global exposure.",
-              imageUrl: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
+              imageUrl: "/innovate collaboration/Image_fx (89).jpg",
               badge: "Innovation"
               },
               {
                 title: "SMEs & Startups",
               description: "Connect with markets & investors.",
-              imageUrl: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
+              imageUrl: "/excellent craftmanship/Image_fx (92).jpg",
               badge: "Growth"
               }
             ].map((audience, index) => (
@@ -405,6 +501,122 @@ export default function ElysianSummitPage() {
             >
               Book a Consultation
             </button>
+          </div>
+        </div>
+      </AnimatedSection>
+
+      {/* Call for Volunteers */}
+      <AnimatedSection
+        backgroundType="dark"
+        className="scroll-mt-20"
+        id="volunteers"
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Side - Content */}
+            <div className="space-y-8 lg:text-left text-center">
+              {/* Main Call to Action */}
+              <div>
+                <h3 className="text-4xl md:text-5xl font-black text-white mb-6" style={{ fontFamily: 'var(--font-nohemi)' }}>
+                  Be Part of Something BIG
+                </h3>
+                
+                {/* Mobile Image - Show only on mobile, between title and body */}
+                <div className="lg:hidden flex justify-center mb-8">
+                  <div className="relative w-80 h-80 aspect-square">
+                    {/* Floating Telephone Animation */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="animate-float">
+                        <Image
+                          src="/telephoned cropped.png"
+                          alt="Vintage Telephone - Call for Volunteers"
+                          width={400}
+                          height={400}
+                          className="drop-shadow-2xl"
+                          priority
+                        />
+                      </div>
+                    </div>
+
+                    {/* Animated Fireflies */}
+                    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                      {/* Firefly 1 */}
+                      <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-yellow-400 rounded-full animate-firefly-1 opacity-80"></div>
+                      {/* Firefly 2 */}
+                      <div className="absolute top-1/3 right-1/4 w-2 h-2 bg-amber-300 rounded-full animate-firefly-2 opacity-70"></div>
+                      {/* Firefly 3 */}
+                      <div className="absolute bottom-1/3 left-1/3 w-2.5 h-2.5 bg-yellow-300 rounded-full animate-firefly-3 opacity-90"></div>
+                      {/* Firefly 4 */}
+                      <div className="absolute bottom-1/4 right-1/3 w-2 h-2 bg-amber-400 rounded-full animate-firefly-4 opacity-75"></div>
+                      {/* Firefly 5 */}
+                      <div className="absolute top-1/2 left-1/6 w-1.5 h-1.5 bg-yellow-500 rounded-full animate-firefly-5 opacity-85"></div>
+                      {/* Firefly 6 */}
+                      <div className="absolute top-2/3 right-1/6 w-2 h-2 bg-amber-200 rounded-full animate-firefly-6 opacity-80"></div>
+                      {/* Firefly 7 */}
+                      <div className="absolute bottom-1/2 right-1/2 w-1.5 h-1.5 bg-yellow-400 rounded-full animate-firefly-7 opacity-70"></div>
+                      {/* Firefly 8 */}
+                      <div className="absolute top-1/6 left-1/2 w-2.5 h-2.5 bg-amber-300 rounded-full animate-firefly-8 opacity-90"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <p className="text-lg md:text-xl text-gray-200 leading-relaxed mb-8" style={{ fontFamily: 'var(--font-nohemi)' }}>
+                  Elysian is hosting the Elysian Summit & Exhibition 2026, a grand showcase of innovation, creativity and enterprise. 
+                  We're inviting passionate and reliable individuals to join our Volunteer Team.
+                </p>
+              </div>
+
+              {/* Call to Action Button */}
+              <div>
+                <a 
+                  href="https://forms.gle/No9x8GcG9igPVqVJ7" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-block bg-yellow-600 hover:bg-yellow-700 text-white px-8 py-4 text-lg font-bold transition-all duration-300 hover:scale-105"
+                >
+                  Join Our Volunteer Team
+                </a>
+              </div>
+            </div>
+
+            {/* Right Side - Image (Desktop only) */}
+            <div className="hidden lg:flex justify-center lg:justify-end">
+              <div className="relative w-full max-w-lg aspect-square">
+                {/* Floating Telephone Animation */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="animate-float">
+                    <Image
+                      src="/telephoned cropped.png"
+                      alt="Vintage Telephone - Call for Volunteers"
+                      width={500}
+                      height={500}
+                      className="drop-shadow-2xl"
+                      priority
+                    />
+                  </div>
+                </div>
+
+                {/* Animated Fireflies */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                  {/* Firefly 1 */}
+                  <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-yellow-400 rounded-full animate-firefly-1 opacity-80"></div>
+                  {/* Firefly 2 */}
+                  <div className="absolute top-1/3 right-1/4 w-2 h-2 bg-amber-300 rounded-full animate-firefly-2 opacity-70"></div>
+                  {/* Firefly 3 */}
+                  <div className="absolute bottom-1/3 left-1/3 w-2.5 h-2.5 bg-yellow-300 rounded-full animate-firefly-3 opacity-90"></div>
+                  {/* Firefly 4 */}
+                  <div className="absolute bottom-1/4 right-1/3 w-2 h-2 bg-amber-400 rounded-full animate-firefly-4 opacity-75"></div>
+                  {/* Firefly 5 */}
+                  <div className="absolute top-1/2 left-1/6 w-1.5 h-1.5 bg-yellow-500 rounded-full animate-firefly-5 opacity-85"></div>
+                  {/* Firefly 6 */}
+                  <div className="absolute top-2/3 right-1/6 w-2 h-2 bg-amber-200 rounded-full animate-firefly-6 opacity-80"></div>
+                  {/* Firefly 7 */}
+                  <div className="absolute bottom-1/2 right-1/2 w-1.5 h-1.5 bg-yellow-400 rounded-full animate-firefly-7 opacity-70"></div>
+                  {/* Firefly 8 */}
+                  <div className="absolute top-1/6 left-1/2 w-2.5 h-2.5 bg-amber-300 rounded-full animate-firefly-8 opacity-90"></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </AnimatedSection>

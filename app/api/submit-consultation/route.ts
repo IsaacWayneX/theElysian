@@ -1,38 +1,59 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { supabase, BookingInsert } from '@/lib/supabase'
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
     
-    // Google Apps Script web app URL for consultation submissions
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxd4Tp0AWKdQVOfhcPL_yy2S6Ah2skWHxWAYc_it5zLKiGIzBRhG_A3mdmgYlX9yQosRw/exec'
-    
-    // Create FormData for Google Apps Script
-    const formData = new FormData()
-    formData.append('type', 'consultation')
-    formData.append('name', body.name)
-    formData.append('email', body.email)
-    formData.append('phone', body.phone)
-    formData.append('message', body.message)
-    
-    // Submit to Google Apps Script from server-side
-    const response = await fetch(GOOGLE_SCRIPT_URL, {
-      method: 'POST',
-      body: formData,
-    })
-    
-    const responseText = await response.text()
-    
-    try {
-      const result = JSON.parse(responseText)
-      return NextResponse.json(result)
-    } catch {
-      // If response is not JSON, assume success
+    // Validate required fields
+    const requiredFields = ['name', 'email', 'phone', 'message']
+    for (const field of requiredFields) {
+      if (!body[field] || body[field].trim() === '') {
+        return NextResponse.json(
+          { success: false, error: `Missing required field: ${field}` },
+          { status: 400 }
+        )
+      }
+    }
+
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(body.email)) {
+      return NextResponse.json(
+        { success: false, error: 'Invalid email format' },
+        { status: 400 }
+      )
+    }
+
+    // Prepare data for Supabase
+    const bookingData: BookingInsert = {
+      name: body.name.trim(),
+      email: body.email.trim().toLowerCase(),
+      phone_number: body.phone.trim(),
+      message: body.message.trim(),
+      status: 'pending', // Default status for new consultation requests
+      exhibitor_id: null // Not linked to any specific exhibitor initially
+    }
+
+    // Insert into Supabase bookings table
+    const { data, error } = await supabase
+      .from('bookings')
+      .insert([bookingData])
+      .select()
+
+    if (error) {
+      console.error('Supabase error:', error)
+      return NextResponse.json(
+        { success: false, error: 'Failed to save consultation request to database' },
+        { status: 500 }
+      )
+    }
+
       return NextResponse.json({ 
         success: true, 
-        message: 'Consultation request submitted successfully!' 
+      message: 'Consultation request submitted successfully!',
+      data: data[0]
       })
-    }
     
   } catch (error) {
     console.error('Server-side consultation submission error:', error)

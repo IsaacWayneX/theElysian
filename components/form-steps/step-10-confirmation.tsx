@@ -9,13 +9,20 @@ import { SVGStars } from "@/components/svg-stars"
 import Image from "next/image"
 
 const industryLabels: { [key: string]: string } = {
-  "oil-gas": "Oil & Gas",
-  "fintech": "Fintech & Banking",
-  "fashion": "Fashion & Design",
-  "construction": "Real Estate & Construction",
-  "tech": "Smart Technologies",
-  "logistics": "Logistics & Transport",
-  "creative": "Creative Industries",
+  "energy": "Energy",
+  "real-estate": "Real Estate",
+  "fashion": "Fashion",
+  "banking": "Banking",
+  "creative-industry": "Creative Industry",
+  "logistics": "Logistics",
+  "interior-decor": "Interior Decor",
+  "smart-technologies": "Smart Technologies",
+  "automobile": "Automobile",
+  "agriculture": "Agriculture",
+  "oil-gas": "Oil and Gas",
+  "health-wellness": "Health and Wellness",
+  "education": "Education",
+  "security": "Security",
   "other": "Other"
 }
 
