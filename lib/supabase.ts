@@ -56,3 +56,14 @@ export interface BookingInsert {
   status?: string
   exhibitor_id?: string
 }
+
+// Types for the booths table
+export interface Booth {
+  id: string
+  name: string
+  size: string
+  is_available: boolean
+  price: number
+  created_at?: string
+  updated_at?: string
+}

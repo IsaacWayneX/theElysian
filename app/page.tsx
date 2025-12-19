@@ -63,7 +63,7 @@ export default function ElysianSummitPage() {
       id: '5',
       title: 'Creative Industry',
       description: 'Digital media, entertainment technology, and innovative content creation platforms driving cultural innovation.',
-      imageUrl: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=600&fit=crop',
+      imageUrl: 'https://images.unsplash.com/photo-1558655146-364adaf1fcc9?w=800&h=600&fit=crop',
       badge: 'Creative',
       category: 'Media'
     },
@@ -87,7 +87,7 @@ export default function ElysianSummitPage() {
       id: '8',
       title: 'Smart Technologies',
       description: 'IoT solutions, AI applications, and smart city technologies transforming everyday experiences.',
-      imageUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=600&fit=crop',
+      imageUrl: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=600&fit=crop',
       badge: 'Smart Tech',
       category: 'Innovation'
     },
@@ -119,7 +119,7 @@ export default function ElysianSummitPage() {
       id: '12',
       title: 'Health & Wellness',
       description: 'Telemedicine platforms, health monitoring devices, and innovative healthcare solutions.',
-      imageUrl: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=600&fit=crop',
+      imageUrl: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=600&fit=crop',
       badge: 'Health',
       category: 'Wellness'
     },
@@ -135,7 +135,7 @@ export default function ElysianSummitPage() {
       id: '14',
       title: 'Security & Safety',
       description: 'Cybersecurity solutions, smart surveillance systems, and advanced security technologies.',
-      imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
+      imageUrl: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=600&fit=crop',
       badge: 'Security',
       category: 'Protection'
     },
@@ -143,7 +143,7 @@ export default function ElysianSummitPage() {
       id: '15',
       title: 'Emerging Industries',
       description: 'Innovative solutions and breakthrough technologies across diverse sectors and emerging markets.',
-      imageUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=600&fit=crop',
+      imageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop',
       badge: 'Other',
       category: 'Innovation'
     }
@@ -514,7 +514,7 @@ export default function ElysianSummitPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Side - Content */}
-            <div className="space-y-8 lg:text-left text-center">
+            <div className="space-y-8 lg:text-left text-center pl-8 lg:pl-12">
               {/* Main Call to Action */}
               <div>
                 <h3 className="text-4xl md:text-5xl font-black text-white mb-6" style={{ fontFamily: 'var(--font-nohemi)' }}>
