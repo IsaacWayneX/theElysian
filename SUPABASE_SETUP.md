@@ -6,7 +6,7 @@
 npm install @supabase/supabase-js
 ```
 
-## 2. Environment Variable
+## 2. Environment Variables
 
 Create a `.env.local` file in the root directory with your Supabase credentials:
 
