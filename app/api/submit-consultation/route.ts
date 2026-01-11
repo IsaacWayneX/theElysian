@@ -4,6 +4,12 @@ import { supabase, BookingInsert } from '@/lib/supabase'
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
+    console.log('Received consultation request:', { 
+      name: body.name, 
+      email: body.email, 
+      phone: body.phone,
+      hasMessage: !!body.message 
+    })
     
     // Validate required fields
     const requiredFields = ['name', 'email', 'phone', 'message']
@@ -43,22 +49,49 @@ export async function POST(request: NextRequest) {
 
     if (error) {
       console.error('Supabase error:', error)
+      console.error('Error details:', {
+        message: error.message,
+        details: error.details,
+        hint: error.hint,
+        code: error.code
+      })
       return NextResponse.json(
-        { success: false, error: 'Failed to save consultation request to database' },
+        { 
+          success: false, 
+          error: error.message || 'Failed to save consultation request to database',
+          details: error.details || null,
+          code: error.code || null
+        },
         { status: 500 }
       )
     }
 
-      return NextResponse.json({ 
-        success: true, 
+    if (!data || data.length === 0) {
+      console.error('No data returned from Supabase insert')
+      return NextResponse.json(
+        { 
+          success: false, 
+          error: 'Failed to retrieve inserted data' 
+        },
+        { status: 500 }
+      )
+    }
+
+    return NextResponse.json({ 
+      success: true, 
       message: 'Consultation request submitted successfully!',
       data: data[0]
-      })
+    })
     
-  } catch (error) {
+  } catch (error: any) {
     console.error('Server-side consultation submission error:', error)
+    console.error('Error stack:', error?.stack)
     return NextResponse.json(
-      { success: false, error: 'Failed to submit consultation request' },
+      { 
+        success: false, 
+        error: error?.message || 'Failed to submit consultation request',
+        type: error?.name || 'UnknownError'
+      },
       { status: 500 }
     )
   }

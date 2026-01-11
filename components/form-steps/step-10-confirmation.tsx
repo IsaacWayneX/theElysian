@@ -1,5 +1,6 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { CheckCircle, ArrowRight, ArrowLeft } from "lucide-react"
@@ -7,6 +8,7 @@ import { useMultiStepForm } from "@/components/multi-step-form-context"
 import { ZigzagUnderline } from "@/components/svg-zigzag-underline"
 import { SVGStars } from "@/components/svg-stars"
 import Image from "next/image"
+import { Booth } from "@/lib/supabase"
 
 const industryLabels: { [key: string]: string } = {
   "energy": "Energy",
@@ -26,15 +28,29 @@ const industryLabels: { [key: string]: string } = {
   "other": "Other"
 }
 
-const boothSizeLabels: { [key: string]: string } = {
-  "3x3": "3m x 3m (Standard)",
-  "4x4": "4m x 4m (Large)",
-  "6x4": "6m x 4m (Premium)",
-  "custom": "Custom Size"
-}
-
 export function Step10Confirmation() {
   const { formData, submitForm, prevStep, isSubmitting, submitStatus, errorMessage } = useMultiStepForm()
+  const [selectedBooth, setSelectedBooth] = useState<Booth | null>(null)
+
+  useEffect(() => {
+    const fetchBooth = async () => {
+      if (formData.boothSize) {
+        try {
+          const response = await fetch('/api/booths')
+          const result = await response.json()
+          
+          if (result.success && result.data) {
+            const booth = result.data.find((b: Booth) => b.id === formData.boothSize)
+            setSelectedBooth(booth || null)
+          }
+        } catch (err) {
+          console.error('Error fetching booth:', err)
+        }
+      }
+    }
+
+    fetchBooth()
+  }, [formData.boothSize])
 
   const handleSubmit = async () => {
     await submitForm()
@@ -97,7 +113,9 @@ export function Step10Confirmation() {
                     <div className="space-y-1 md:space-y-2 text-gray-300">
                       <div className="flex flex-col gap-1">
                         <span className="text-white text-xs sm:text-sm md:text-lg font-bold">Booth Size:</span>
-                        <span className="text-xs sm:text-sm md:text-lg">{boothSizeLabels[formData.boothSize] || formData.boothSize}</span>
+                        <span className="text-xs sm:text-sm md:text-lg">
+                          {selectedBooth ? selectedBooth.size : formData.boothSize}
+                        </span>
                       </div>
                       {formData.specialRequirements && (
                         <div className="flex flex-col gap-1">

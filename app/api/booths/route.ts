@@ -3,10 +3,12 @@ import { supabase } from '@/lib/supabase'
 
 export async function GET() {
   try {
-    // Fetch only available booths, ordered by price
+    // Fetch booths from the booths table with all columns:
+    // id, name, size, is_available, price, created_at, updated_at
+    // Filter to only available booths, ordered by price
     const { data, error } = await supabase
       .from('booths')
-      .select('*')
+      .select('id, name, size, is_available, price, created_at, updated_at')
       .eq('is_available', true)
       .order('price', { ascending: true })
 

@@ -123,9 +123,15 @@ CREATE POLICY "Allow authenticated reads" ON exhibitors
 -- Enable RLS on the bookings table
 ALTER TABLE bookings ENABLE ROW LEVEL SECURITY;
 
+-- Drop existing policy if it exists (to avoid conflicts)
+DROP POLICY IF EXISTS "Allow public inserts" ON bookings;
+
 -- Create a policy that allows inserts (for consultation form submissions)
+-- IMPORTANT: The 'TO public' clause is needed to allow anonymous inserts
 CREATE POLICY "Allow public inserts" ON bookings
-  FOR INSERT WITH CHECK (true);
+  FOR INSERT 
+  TO public
+  WITH CHECK (true);
 
 -- Create a policy that allows reads (for admin access)
 CREATE POLICY "Allow authenticated reads" ON bookings
