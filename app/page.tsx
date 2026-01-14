@@ -295,11 +295,7 @@ export default function ElysianSummitPage() {
         className="scroll-mt-20"
         id="introduction"
       >
-        <div className="max-w-5xl mx-auto text-gray-800">
-          <p className="text-lg md:text-xl leading-relaxed" style={{ fontFamily: 'var(--font-nohemi)' }}>
-            The showcase bridges technical and artistic disciplines, reflecting the richness of innovation and the pursuit of excellence across Nigeria and beyond.
-          </p>
-        </div>
+      
       </AnimatedSection>
 
       {/* Featured Industries Carousel */}
