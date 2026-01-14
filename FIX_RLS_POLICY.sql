@@ -1,4 +1,4 @@
--- Fix for Row Level Security (RLS) Policy Issue
+-- Fix for Row Level Security (RLS) Policy Issu
 -- Run this SQL in your Supabase SQL Editor
 
 -- First, check if the bookings table exists
