@@ -287,6 +287,21 @@ export default function ElysianSummitPage() {
         </div>
       </section>
 
+      {/* Introduction */}
+      <AnimatedSection
+        title="Introduction"
+        subtitle="Welcome to The Elysian Summit & Exhibition — a premier showcase of innovation, technology, excellence, and craftsmanship across a dynamic spectrum of industries. From renewable energy and smart technologies to oil & gas, real estate, banking, and logistics — plus fashion, interior décor, construction craftsmanship, and creative enterprise — CCS 2026 unites the forces driving growth, advancement, and sustainable development."
+        backgroundType="white"
+        className="scroll-mt-20"
+        id="introduction"
+      >
+        <div className="max-w-5xl mx-auto text-gray-800">
+          <p className="text-lg md:text-xl leading-relaxed" style={{ fontFamily: 'var(--font-nohemi)' }}>
+            The showcase bridges technical and artistic disciplines, reflecting the richness of innovation and the pursuit of excellence across Nigeria and beyond.
+          </p>
+        </div>
+      </AnimatedSection>
+
       {/* Featured Industries Carousel */}
       <AnimatedSection
         title="Featured Industries"
@@ -342,7 +357,7 @@ export default function ElysianSummitPage() {
 
       {/* Key Objectives with Image Cards */}
       <AnimatedSection
-        title="Summit & Exhibition Objectives"
+        title="Key Objectives for CCS 2026"
         subtitle="Driving innovation and excellence across all sectors"
         backgroundType="white"
         className="scroll-mt-20"
@@ -350,42 +365,60 @@ export default function ElysianSummitPage() {
       >
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {[
-            {
-              title: "Innovation Showcase",
-              description: "Showcase cutting-edge innovations & disruptive technologies.",
-              imageUrl: "/innovate collaboration/Image_fx (86).jpg",
-              badge: "Innovation"
-            },
-            {
-              title: "Cross-Industry Collaboration",
-              description: "Foster cross-industry collaboration and partnerships.",
-              imageUrl: "/cross industry collaboration/Image_fx (82).jpg",
-              badge: "Collaboration"
-            },
-            {
-              title: "Excellence & Craftsmanship",
-              description: "Highlight excellence & craftsmanship across all industries.",
-              imageUrl: "/excellent craftmanship/Image_fx (90).jpg",
-              badge: "Excellence"
-            },
-            {
-              title: "Sustainable Solutions",
-              description: "Promote sustainable & smart solutions for the future.",
-              imageUrl: "/innovate collaboration/Image_fx (87).jpg",
-              badge: "Sustainability"
-            },
-            {
-              title: "Investment Opportunities",
-              description: "Enable investment & business opportunities for growth.",
-              imageUrl: "/cross industry collaboration/Image_fx (83).jpg",
-              badge: "Investment"
-            },
-            {
-              title: "Digital Transformation",
-              description: "Drive digital transformation in traditional sectors.",
-              imageUrl: "/excellent craftmanship/Image_fx (91).jpg",
-              badge: "Digital"
-            }
+              {
+                title: "Showcase Cutting-Edge Innovations and Technologies",
+                description: "Highlight breakthrough solutions shaping the future.",
+                imageUrl: "/innovate collaboration/Image_fx (86).jpg",
+                badge: "Innovation"
+              },
+              {
+                title: "Foster Cross-Industry Collaboration and Knowledge Exchange",
+                description: "Connect leaders across sectors to accelerate progress.",
+                imageUrl: "/cross industry collaboration/Image_fx (82).jpg",
+                badge: "Collaboration"
+              },
+              {
+                title: "Celebrate Excellence and Craftsmanship",
+                description: "Showcase mastery in design, build, and execution.",
+                imageUrl: "/excellent craftmanship/Image_fx (90).jpg",
+                badge: "Excellence"
+              },
+              {
+                title: "Promote Sustainable and Smart Solutions",
+                description: "Champion eco-friendly and intelligent innovations.",
+                imageUrl: "/innovate collaboration/Image_fx (87).jpg",
+                badge: "Sustainability"
+              },
+              {
+                title: "Enable Business Development and Investment Opportunities",
+                description: "Create pathways for growth and funding.",
+                imageUrl: "/cross industry collaboration/Image_fx (83).jpg",
+                badge: "Investment"
+              },
+              {
+                title: "Drive Digital Transformation Across Traditional Sectors",
+                description: "Advance modernization in established industries.",
+                imageUrl: "/excellent craftmanship/Image_fx (91).jpg",
+                badge: "Digital"
+              },
+              {
+                title: "Educate and Inspire Through Expert-Led Sessions",
+                description: "Learn from visionaries and practitioners.",
+                imageUrl: "/innovate collaboration/Image_fx (88).jpg",
+                badge: "Education"
+              },
+              {
+                title: "Support Local and Regional Talent and Enterprises",
+                description: "Elevate indigenous innovation and SMEs.",
+                imageUrl: "/excellent craftmanship/Image_fx (92).jpg",
+                badge: "Talent"
+              },
+              {
+                title: "Facilitate Global Networking and Market Expansion",
+                description: "Build bridges to international markets.",
+                imageUrl: "/cross industry collaboration/Image_fx (85).jpg",
+                badge: "Networking"
+              }
             ].map((objective, index) => (
             <ImageCard
               key={index}
@@ -401,20 +434,21 @@ export default function ElysianSummitPage() {
 
       {/* What to Expect */}
       <AnimatedSection
-        title="What to Expect"
+        title="Expected Outcomes"
         subtitle="Transformative outcomes and lasting impact"
         backgroundType="white"
       >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
             {[
-              "Strategic partnerships & collaborations.",
-              "Visibility for innovative products/services.",
-              "Investment opportunities & funding deals.",
-              "Knowledge sharing & policy insights.",
-              "Recognition for local & indigenous innovation.",
-              "Global networking & market expansion.",
-              "Launchpad for new products & ideas.",
-              "Establishment of Abuja as a multi-industry innovation hub."
+              "Enhanced visibility for exhibitors and partners",
+              "Strategic partnerships and joint ventures formed",
+              "Direct investment and funding opportunities unlocked",
+              "Market expansion and distribution channels established",
+              "Knowledge transfer and capacity building achieved",
+              "Increased adoption of sustainable and smart solutions",
+              "Recognition of excellence and craftsmanship",
+              "Strengthened local industries and SMEs",
+              "Global networking and brand positioning"
             ].map((outcome, index) => (
             <div key={index} className="flex items-center space-x-4 p-4 bg-gray-50 rounded-xl border border-gray-200">
               <div className="w-4 h-4 bg-yellow-500 rounded-full flex-shrink-0 animate-pulse"></div>
@@ -481,8 +515,100 @@ export default function ElysianSummitPage() {
         />
       </AnimatedSection>
 
-      {/* Final CTA */}
+      {/* Sponsorship Categories */}
       <AnimatedSection
+        title="Sponsorship Categories"
+        subtitle="Choose a tier that aligns with your strategic goals"
+        backgroundType="white"
+        className="scroll-mt-20"
+        id="sponsorship"
+      >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            { tier: "Diamond", price: "₦10,000,000", benefits: ["Prime brand visibility", "Main stage logo & media", "Premium exhibition booth", "Keynote/speaking slot", "VIP access & priority seating", "Press features & interviews", "Dedicated networking support"] },
+            { tier: "Platinum", price: "₦7,500,000", benefits: ["High brand visibility", "Stage and media placement", "Premium booth placement", "Panel participation", "VIP access", "Media highlights", "Curated meetings"] },
+            { tier: "Gold", price: "₦5,000,000", benefits: ["Strong brand visibility", "Stage logo display", "Standard exhibition booth", "Panel Q&A participation", "Priority seating", "Media mentions", "Networking support"] },
+            { tier: "Silver", price: "₦3,000,000", benefits: ["Brand visibility", "Logo on stage & materials", "Standard booth", "Access to panels", "Priority seating"] },
+            { tier: "Bronze", price: "₦1,500,000", benefits: ["Logo placement", "Expo materials inclusion", "Standard booth", "General access"] }
+          ].map((s, idx) => (
+            <Card key={idx} className="p-6 border border-gray-200 rounded-xl shadow-sm">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-2xl font-semibold" style={{ fontFamily: 'var(--font-nohemi)' }}>{s.tier} Sponsor</h3>
+                <span className="text-xl text-yellow-700 font-bold">{s.price}</span>
+              </div>
+              <ul className="space-y-2 text-gray-700">
+                {s.benefits.map((b, i) => (
+                  <li key={i} className="flex items-center gap-3">
+                    <div className="w-2.5 h-2.5 bg-yellow-600 rounded-full"></div>
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+          ))}
+        </div>
+      </AnimatedSection
+      >
+
+      {/* Corporate Presentation */}
+       <AnimatedSection
+         title="Corporate Presentation"
+         subtitle="Showcase your brand to a high-value audience"
+         backgroundType="white"
+       >
+         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+           {[
+             { title: "15-minute Corporate Presentation", price: "₦2,000,000", bullets: ["Main stage presentation", "AV & technical support", "Brand backdrop", "Agenda promotion", "Media highlights"] },
+             { title: "30-minute Corporate Presentation", price: "₦4,000,000", bullets: ["Extended stage time", "AV & technical support", "Premium brand backdrop", "Agenda promotion", "Media highlights"] }
+           ].map((p, idx) => (
+             <Card key={idx} className="p-6 border border-gray-200 rounded-xl shadow-sm">
+               <div className="flex items-center justify-between mb-4">
+                 <h3 className="text-2xl font-semibold" style={{ fontFamily: 'var(--font-nohemi)' }}>{p.title}</h3>
+                 <span className="text-xl text-yellow-700 font-bold">{p.price}</span>
+               </div>
+               <ul className="space-y-2 text-gray-700">
+                 {p.bullets.map((b, i) => (
+                   <li key={i} className="flex items-center gap-3">
+                     <div className="w-2.5 h-2.5 bg-yellow-600 rounded-full"></div>
+                     <span>{b}</span>
+                   </li>
+                 ))}
+               </ul>
+             </Card>
+           ))}
+         </div>
+       </AnimatedSection
+       >
+
+       {/* Benefits of Sponsorship & Partnership */}
+       <AnimatedSection
+         title="Benefits of Sponsorship & Partnership"
+         subtitle="Ten ways your brand gains leverage and lasting impact"
+         backgroundType="white"
+       >
+         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+           {[
+             "Prime brand visibility across stages and media",
+             "High-value networking with industry leaders and decision-makers",
+             "Strategic co-branding and partner recognition",
+             "Direct engagement with target audience and buyers",
+             "Access to VIP events and curated meetings",
+             "Speaking opportunities and thought-leadership positioning",
+             "Preferred booth placement and exhibition prominence",
+             "Inclusion in press releases and media coverage",
+             "Recognition across digital channels and summit materials",
+             "Long-term partnership opportunities beyond the showcase"
+           ].map((benefit, index) => (
+             <div key={index} className="flex items-center space-x-4 p-4 bg-gray-50 rounded-xl border border-gray-200">
+               <div className="w-4 h-4 bg-yellow-500 rounded-full flex-shrink-0"></div>
+               <p className="text-gray-800 text-lg" style={{ fontFamily: 'var(--font-nohemi)' }}>{benefit}</p>
+             </div>
+           ))}
+         </div>
+       </AnimatedSection>
+
+       {/* Final CTA */}
+       <AnimatedSection
         title="Be Part of the Future"
         subtitle="Celebrate excellence. Elevate ideas. Shape the future at The Elysian Summit & Exhibition."
         backgroundType="white"
@@ -507,7 +633,7 @@ export default function ElysianSummitPage() {
 
       {/* Call for Volunteers */}
       <AnimatedSection
-        backgroundType="dark"
+        backgroundType="gradient"
         className="scroll-mt-20"
         id="volunteers"
       >

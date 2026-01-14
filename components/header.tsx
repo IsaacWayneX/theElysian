@@ -24,6 +24,7 @@ export function Header({ onOpenModal, onOpenConsultationModal }: HeaderProps) {
     { label: "Featured", href: "#featured" },
     { label: "Vision", href: "#vision" },
     { label: "Objectives", href: "#objectives" },
+    { label: "Sponsorship", href: "#sponsorship" },
     { label: "Volunteers", href: "#volunteers" },
     { label: "Contact", href: "#contact" }
   ]
