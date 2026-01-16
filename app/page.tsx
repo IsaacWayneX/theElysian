@@ -198,6 +198,117 @@ export default function ElysianSummitPage() {
     }
   ]
 
+  const sponsorshipTiers = [
+    {
+      tier: 'Diamond',
+      price: 10_000_000,
+      benefits: [
+        'Prime brand visibility',
+        'Main stage logo & media',
+        'Premium exhibition booth',
+        'Keynote/speaking slot',
+        'VIP access & priority seating',
+        'Press features & interviews',
+        'Dedicated networking support',
+      ],
+    },
+    {
+      tier: 'Platinum',
+      price: 7_500_000,
+      benefits: [
+        'High brand visibility',
+        'Stage and media placement',
+        'Premium booth placement',
+        'Panel participation',
+        'VIP access',
+        'Media highlights',
+        'Curated meetings',
+      ],
+    },
+    {
+      tier: 'Gold',
+      price: 5_000_000,
+      benefits: [
+        'Strong brand visibility',
+        'Stage logo display',
+        'Standard exhibition booth',
+        'Panel Q&A participation',
+        'Priority seating',
+        'Media mentions',
+        'Networking support',
+      ],
+    },
+    {
+      tier: 'Silver',
+      price: 3_000_000,
+      benefits: [
+        'Brand visibility',
+        'Logo on stage & materials',
+        'Standard booth',
+        'Access to panels',
+        'Priority seating',
+      ],
+    },
+    {
+      tier: 'Bronze',
+      price: 1_500_000,
+      benefits: [
+        'Logo placement',
+        'Expo materials inclusion',
+        'Standard booth',
+        'General access',
+      ],
+    },
+  ]
+
+  const corporatePresentations = [
+    {
+      title: '15-minute Corporate Presentation',
+      price: 2_000_000,
+      bullets: [
+        'Main stage presentation',
+        'AV & technical support',
+        'Brand backdrop',
+        'Agenda promotion',
+        'Media highlights',
+      ],
+    },
+    {
+      title: '30-minute Corporate Presentation',
+      price: 4_000_000,
+      bullets: [
+        'Extended stage time',
+        'AV & technical support',
+        'Premium brand backdrop',
+        'Agenda promotion',
+        'Media highlights',
+      ],
+    },
+  ]
+
+  const formatCurrency = (amount: number) =>
+    new Intl.NumberFormat('en-NG', {
+      style: 'currency',
+      currency: 'NGN',
+      maximumFractionDigits: 0,
+    }).format(amount)
+
+  const volunteerRoles = [
+    'Protocol',
+    'Ushering',
+    'Refreshment',
+    'Publicity & Media',
+    'Registration & Data',
+    'Feedback & Survey',
+    'Sound & Tech Volunteers',
+    'Stage & Program Support',
+    'Event Planning & Logistics',
+    'Venue Setup & Decoration',
+    'Clean-Up & Pack-Up Team',
+    'Ushering & Guest Relations',
+    'Video & Photography Assistant',
+  ]
+
   return (
     <div className="min-h-screen bg-black">
       <Header onOpenModal={openModal} onOpenConsultationModal={openConsultationModal} />
@@ -524,22 +635,31 @@ export default function ElysianSummitPage() {
         id="sponsorship"
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            { tier: "Diamond", price: "₦10,000,000", benefits: ["Prime brand visibility", "Main stage logo & media", "Premium exhibition booth", "Keynote/speaking slot", "VIP access & priority seating", "Press features & interviews", "Dedicated networking support"] },
-            { tier: "Platinum", price: "₦7,500,000", benefits: ["High brand visibility", "Stage and media placement", "Premium booth placement", "Panel participation", "VIP access", "Media highlights", "Curated meetings"] },
-            { tier: "Gold", price: "₦5,000,000", benefits: ["Strong brand visibility", "Stage logo display", "Standard exhibition booth", "Panel Q&A participation", "Priority seating", "Media mentions", "Networking support"] },
-            { tier: "Silver", price: "₦3,000,000", benefits: ["Brand visibility", "Logo on stage & materials", "Standard booth", "Access to panels", "Priority seating"] },
-            { tier: "Bronze", price: "₦1,500,000", benefits: ["Logo placement", "Expo materials inclusion", "Standard booth", "General access"] }
-          ].map((s, idx) => (
-            <Card key={idx} className="p-6 border border-gray-200 rounded-xl shadow-sm">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-2xl font-semibold" style={{ fontFamily: 'var(--font-nohemi)' }}>{s.tier} Sponsor</h3>
-                <span className="text-xl text-yellow-700 font-bold">{s.price}</span>
+          {sponsorshipTiers.map((s, idx) => (
+            <Card
+              key={idx}
+              className="p-6 rounded-xl border border-yellow-500/30 shadow-lg bg-black/80 text-white"
+            >
+              <div className="flex items-start justify-between mb-6">
+                <h3
+                  className="text-2xl font-semibold"
+                  style={{ fontFamily: 'var(--font-nohemi)' }}
+                >
+                  {s.tier} Sponsor
+                </h3>
+                <div className="flex flex-col items-end gap-1">
+                  <span className="text-sm line-through text-white/60">
+                    {formatCurrency(s.price * 2)}
+                  </span>
+                  <span className="text-3xl font-bold text-white">
+                    {formatCurrency(s.price)}
+                  </span>
+                </div>
               </div>
-              <ul className="space-y-2 text-gray-700">
+              <ul className="space-y-3 text-white">
                 {s.benefits.map((b, i) => (
                   <li key={i} className="flex items-center gap-3">
-                    <div className="w-2.5 h-2.5 bg-yellow-600 rounded-full"></div>
+                    <div className="w-2.5 h-2.5 bg-yellow-500 rounded-full"></div>
                     <span>{b}</span>
                   </li>
                 ))}
@@ -547,8 +667,7 @@ export default function ElysianSummitPage() {
             </Card>
           ))}
         </div>
-      </AnimatedSection
-      >
+      </AnimatedSection>
 
       {/* Corporate Presentation */}
        <AnimatedSection
@@ -557,28 +676,39 @@ export default function ElysianSummitPage() {
          backgroundType="white"
        >
          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-           {[
-             { title: "15-minute Corporate Presentation", price: "₦2,000,000", bullets: ["Main stage presentation", "AV & technical support", "Brand backdrop", "Agenda promotion", "Media highlights"] },
-             { title: "30-minute Corporate Presentation", price: "₦4,000,000", bullets: ["Extended stage time", "AV & technical support", "Premium brand backdrop", "Agenda promotion", "Media highlights"] }
-           ].map((p, idx) => (
-             <Card key={idx} className="p-6 border border-gray-200 rounded-xl shadow-sm">
-               <div className="flex items-center justify-between mb-4">
-                 <h3 className="text-2xl font-semibold" style={{ fontFamily: 'var(--font-nohemi)' }}>{p.title}</h3>
-                 <span className="text-xl text-yellow-700 font-bold">{p.price}</span>
-               </div>
-               <ul className="space-y-2 text-gray-700">
-                 {p.bullets.map((b, i) => (
-                   <li key={i} className="flex items-center gap-3">
-                     <div className="w-2.5 h-2.5 bg-yellow-600 rounded-full"></div>
-                     <span>{b}</span>
-                   </li>
-                 ))}
-               </ul>
-             </Card>
-           ))}
-         </div>
-       </AnimatedSection
-       >
+          {corporatePresentations.map((p, idx) => (
+            <Card
+              key={idx}
+              className="p-6 rounded-xl border border-yellow-500/30 shadow-lg bg-black/80 text-white"
+            >
+              <div className="flex items-start justify-between mb-6">
+                <h3
+                  className="text-2xl font-semibold"
+                  style={{ fontFamily: 'var(--font-nohemi)' }}
+                >
+                  {p.title}
+                </h3>
+                <div className="flex flex-col items-end gap-1">
+                  <span className="text-sm line-through text-white/60">
+                    {formatCurrency(p.price * 2)}
+                  </span>
+                  <span className="text-3xl font-bold text-white">
+                    {formatCurrency(p.price)}
+                  </span>
+                </div>
+              </div>
+              <ul className="space-y-3 text-white">
+                {p.bullets.map((b, i) => (
+                  <li key={i} className="flex items-center gap-3">
+                    <div className="w-2.5 h-2.5 bg-yellow-500 rounded-full"></div>
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+          ))}
+        </div>
+      </AnimatedSection>
 
        {/* Benefits of Sponsorship & Partnership */}
        <AnimatedSection
@@ -638,9 +768,9 @@ export default function ElysianSummitPage() {
         id="volunteers"
       >
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_auto_1fr] gap-12 lg:items-stretch">
             {/* Left Side - Content */}
-            <div className="space-y-8 lg:text-left text-center pl-8 lg:pl-12">
+            <div className="flex flex-col gap-8 bg-black/60 border border-yellow-500/20 rounded-2xl p-6 lg:p-8 text-center lg:text-left">
               {/* Main Call to Action */}
               <div>
                 <h3 className="text-4xl md:text-5xl font-black text-white mb-6" style={{ fontFamily: 'var(--font-nohemi)' }}>
@@ -693,7 +823,7 @@ export default function ElysianSummitPage() {
               </div>
 
               {/* Call to Action Button */}
-              <div>
+              <div className="mt-auto">
                 <a 
                   href="https://forms.gle/No9x8GcG9igPVqVJ7" 
                   target="_blank" 
@@ -705,9 +835,9 @@ export default function ElysianSummitPage() {
               </div>
             </div>
 
-            {/* Right Side - Image (Desktop only) */}
-            <div className="hidden lg:flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-lg aspect-square">
+            {/* Center - Image (Desktop only) */}
+            <div className="hidden lg:flex justify-center">
+              <div className="relative w-[360px] xl:w-[420px] aspect-square">
                 {/* Floating Telephone Animation */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="animate-float">
@@ -742,6 +872,26 @@ export default function ElysianSummitPage() {
                   <div className="absolute top-1/6 left-1/2 w-2.5 h-2.5 bg-amber-300 rounded-full animate-firefly-8 opacity-90"></div>
                 </div>
               </div>
+            </div>
+
+            {/* Right Side - Volunteer Roles */}
+            <div className="flex flex-col gap-6 bg-black/60 border border-yellow-500/20 rounded-2xl p-6 lg:p-8">
+              <div className="space-y-2">
+                <h4 className="text-2xl font-semibold text-white" style={{ fontFamily: 'var(--font-nohemi)' }}>
+                  Event Volunteers and Roles
+                </h4>
+                <p className="text-sm text-white/70 mt-2" style={{ fontFamily: 'var(--font-nohemi)' }}>
+                  Explore where your strengths shine and help us deliver an unforgettable summit experience.
+                </p>
+              </div>
+              <ul className="space-y-3 text-white">
+                {volunteerRoles.map((role) => (
+                  <li key={role} className="flex items-start gap-3">
+                    <div className="mt-1 w-2.5 h-2.5 bg-yellow-500 rounded-full"></div>
+                    <span style={{ fontFamily: 'var(--font-nohemi)' }}>{role}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
@@ -789,21 +939,16 @@ export default function ElysianSummitPage() {
             </div>
               <div className="text-center md:text-left">
               <h3 className="text-2xl font-bold text-white mb-4" style={{ fontFamily: 'var(--font-nohemi)' }}>Follow Us</h3>
-                <div className="flex justify-center md:justify-start space-x-4">
-                {[
-                  { name: "Facebook", icon: Facebook, color: "hover:text-blue-400" },
-                  { name: "LinkedIn", icon: Linkedin, color: "hover:text-blue-400" },
-                  { name: "Twitter", icon: Twitter, color: "hover:text-blue-400" },
-                  { name: "Instagram", icon: Instagram, color: "hover:text-pink-400" }
-                ].map((platform) => (
-                  <button 
-                    key={platform.name} 
-                    className={`border border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white w-10 h-10 flex items-center justify-center ${platform.color}`}
-                  >
-                    <platform.icon className="h-4 w-4" />
-                  </button>
-                ))}
-              </div>
+              <a
+                href="https://www.instagram.com/theelysiansummitandexhibition/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center md:justify-start gap-2 bg-white/5 border border-white/20 text-white px-6 py-3 rounded-full hover:bg-white/10 hover:border-yellow-400 transition-all duration-300"
+                style={{ fontFamily: 'var(--font-nohemi)' }}
+              >
+                <Instagram className="h-5 w-5" />
+                <span>Follow us on Instagram</span>
+              </a>
             </div>
           </div>
           
