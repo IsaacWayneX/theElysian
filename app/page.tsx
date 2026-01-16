@@ -952,7 +952,7 @@ export default function ElysianSummitPage() {
           
           <div className="text-center">
               <p className="text-gray-300 text-lg" style={{ fontFamily: 'var(--font-nohemi)' }}>
-                © 2025 The Elysian Summit & Exhibition. All rights reserved.
+                © 2026 The Elysian Summit & Exhibition. All rights reserved.
               </p>
               <p className="text-gray-400 mt-2" style={{ fontFamily: 'var(--font-nohemi)' }}>
                 Building the future of innovation
